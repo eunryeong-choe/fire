@@ -2894,6 +2894,7 @@ caption {
   --krds-table--data-tbody-color-divider: var(--krds-light-color-divider-gray-light);
   --krds-table--data-tbody-color-text: var(--krds-light-color-text-subtle);
   width: 100%;
+  padding-top: var(--krds-number-10);
 }
 .krds-table-wrap .tbl.data th,
 .krds-table-wrap .tbl.data td {
@@ -5913,7 +5914,7 @@ caption {
   --krds-main-menu-mobile--service-menu-font-size: var(--krds-mobile-font-size-navigation-depth-medium-bold);
   --krds-main-menu-mobile--service-menu-icon-size: var(--krds-size-height-3);
   --krds-main-menu-mobile--service-menu-border-radius: var(--krds-radius-medium1);
-  --krds-main-menu-mobile--menu-left-width: 12.4rem;
+  --krds-main-menu-mobile--menu-left-width: 16rem;
   --krds-main-menu-mobile--main-trigger-height: var(--krds-size-height-9);
   --krds-main-menu-mobile--main-trigger-padding-x: var(--krds-padding-8);
   --krds-main-menu-mobile--main-trigger-font-size: var(--krds-mobile-font-size-navigation-depth-medium-bold);
@@ -5922,7 +5923,7 @@ caption {
   --krds-main-menu-mobile--sub-title-font-size: var(--krds-mobile-font-size-navigation-title-small);
   --krds-main-menu-mobile--sub-title-padding-x: var(--krds-padding-3);
   --krds-main-menu-mobile--sub-title-padding-top: var(--krds-padding-3);
-  --krds-main-menu-mobile--sub-title-padding-bottom: var(--krds-padding-6);
+  /*--krds-main-menu-mobile--sub-title-padding-bottom: var(--krds-padding-6);*/
   --krds-main-menu-mobile--sub-menu-trigger-font-size: var(--krds-mobile-font-size-navigation-depth-medium);
   --krds-main-menu-mobile--sub-menu-trigger-font-size-active: var(--krds-mobile-font-size-navigation-depth-medium-bold);
   --krds-main-menu-mobile--sub-menu-trigger-padding-x: var(--krds-padding-3);
@@ -6128,6 +6129,7 @@ caption {
   display: flex;
   position: relative;
   background-color: var(--krds-main-menu-mobile--menu-color-surface);
+  height: 100%;
 }
 .krds-main-menu-mobile .gnb-wrap .gnb-body .gnb-menu .menu-wrap {
   display: flex;
@@ -6643,7 +6645,7 @@ caption {
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .krds-main-menu-mobile .gnb-wrap {
-    width: 40%;
+    width: 55%;
   }
   .krds-main-menu-mobile .gnb-menu .submenu-wrap .depth4-wrap {
     width: 40%;
@@ -10185,10 +10187,9 @@ caption {
 /* form 레이아웃 */
 .fieldset {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
-  flex-direction: column;
-  gap: var(--krds-gap-7);
+  gap: var(--krds-gap-4);
 }
 
 .form-col-group {
@@ -10198,14 +10199,68 @@ caption {
 .form-col-group .form-group {
   width: fit-content;
 }
+
+.button-border0 {
+  border: none !important;
+  height: auto !important;
+  width: auto !important;
+}
+
 @media (max-width: 767px) {
+  .fieldset,
   .form-col-group {
     flex-direction: column;
   }
-  .form-col-group .form-group {
+  .form-col-group .form-group .form-group {
     width: 100%;
   }
 }
+
+/* search-list 레이아웃 */
+.search-section {
+  background-color: var(--krds-light-color-surface-secondary-subtler);
+  border-radius: var(--krds-radius-large2);
+  padding: var(--krds-pc-padding-card-large);
+}
+
+.search-section {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.search-list-top {
+  padding-bottom: var(--krds-number-14);
+}
+
+
+.search-list-bottom,
+.itemlist
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.search-list-bottom.line {
+  padding-top: 2.4rem;
+  border-top: 0.1rem solid var(--krds-light-color-border-gray-light);
+  justify-content: flex-end;
+}
+
+.itemlist .font {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+.itemlist .font-lg {
+  font-size: 2.1rem;
+  font-weight: 700;
+}
+.itemlist .pr-color{
+  color: var(--krds-color-light-primary-60);
+}
+
+
 
 .form-group {
   --krds-form-group--label-pc-font-size: var(--krds-pc-font-size-label-small);
@@ -10721,8 +10776,8 @@ caption {
   --krds-input--mobile-font-size-xlarge: var(--krds-mobile-font-size-heading-medium);
 }
 .krds-input {
-  height: var(--krds-input--size-height-large);
-  border-radius: var(--krds-input--radius-large);
+  height: var(--krds-input--size-height-medium);
+  border-radius: var(--krds-input--radius-medium);
   font-size: var(--krds-input--pc-font-size-large);
 }
 @media (max-width: 767px) {
@@ -12717,8 +12772,7 @@ label {
   overflow: hidden;
 }
 .krds-calendar-area .calendar-wrap.bottom {
-  top: auto;
-  bottom: 6.4rem;
+  top: 1.4rem;
 }
 .krds-calendar-area .calendar-wrap .calendar-head {
   display: flex;

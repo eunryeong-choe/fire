@@ -37,45 +37,50 @@
 			</div>
 			<!-- page-title -->
 			<!-- text input -->
-			<div class="fieldset">
-				<div class="form-group">
-					<div class="form-tit">
-						<div class="form-conts">
-							<select id="select_size_medium" class="krds-form-select medium" title="선택">
-								<option value="" selected>제목</option>
-								<option value="">작성자</option>
-								<option value="">내용</option>
-							</select>
+			<div class="search-list-top">
+				<div class="fieldset">
+					<div class="form-group">
+						<div class="form-tit">
+							<div class="form-conts">
+								<select id="select_size_medium" class="krds-form-select medium" title="선택">
+									<option value="" selected>제목</option>
+									<option value="">작성자</option>
+									<option value="">내용</option>
+								</select>
+							</div>
 						</div>
 					</div>
-				</div>
-				<!-- //폼그룹 -->
-				<!-- 폼그룹 -->
-				<div class="form-group">
-					<div class="form-conts">
-						<input type="text" id="consult_name32" class="krds-input medium" placeholder="내용을 입력하세요">
+					<!-- //폼그룹 -->
+					<!-- 폼그룹 -->
+					<div class="form-group">
+						<div class="form-conts">
+							<input type="text" id="consult_name32" class="krds-input medium" placeholder="내용을 입력하세요">
+						</div>
 					</div>
+					<!-- //폼그룹 -->
+					 
+					<button type="button" class="krds-btn medium">
+						<i class="svg-icon ico-sch"></i>
+						검색
+					</button>
 				</div>
-				<!-- //폼그룹 -->
-				<button type="button" class="krds-btn medium">
-					<i class="svg-icon ico-sch"></i>
-					검색
-				</button>
 			</div>
 			<!-- //text input -->
-			<div class="search-list-top">
+			<div class="itemlist">
 				<ul>
-					<li>검색결과<span>150</span>건</li>
+					<li class="font-lg">
+						검색결과<em class="pr-color">150</em>건
+					</li>
 				</ul>
 				<ul>
 					<li>
-						<strong>목록 표시 개수</strong>
-						<select>
-							<option>10개</option>
-							<option>20개</option>
-							<option>30개</option>
-							<option>40개</option>
-							<option>50개</option>
+						<label for="article-limit" class="font">목록 표시 개수</label>
+						<select id="article-limit" title="보여질 게시물 개수를 선택하세요" class="button-border0 krds-form-select medium">
+							<option value="10" selected>10개</option>
+							<option value="20">20개</option>
+							<option value="30">30개</option>
+							<option value="40">40개</option>
+							<option value="50">50개</option>
 						</select>
 					</li>
 				</ul>
