@@ -10280,11 +10280,22 @@ caption {
   gap: var(--krds-form-group--gap);
   width: 100%;
 }
-.form-group .form-tit,
-.form-group .form-label {
+.form-group, 
+.form-group
+{
   width: 100%;
   color: var(--krds-light-color-text-subtle);
+
 }
+.form-group.label{
+  flex-direction: row;
+  align-items: center;
+}
+.form-label,
+.form-tit
+ {
+}
+
 .form-group .form-conts {
   display: flex;
   align-items: flex-start;
