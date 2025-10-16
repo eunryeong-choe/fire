@@ -1,5 +1,7 @@
 @charset "UTF-8";
 @import "../../css/token/krds_tokens.css";
+
+
 :root {
   --krds-font-family-base: var(--krds-typo-font-type);
   --krds-font-size-base: 62.5%;
@@ -1533,6 +1535,9 @@ caption {
   font-size: var(--krds-button--pc-font-size-large);
   font-weight: var(--krds-button--font-weight-large);
 }
+
+
+ 
 @media (max-width: 767px) {
   .krds-btn {
     font-size: var(--krds-button--mobile-font-size-large);
@@ -1671,6 +1676,13 @@ caption {
   --krds-button--color-link-text-disabled: var(--krds-light-color-text-disabled);
   /* icon 버튼 (텍스트 없음) */
 }
+.krds-btn.tab {
+  background-color: var(--krds-light-color-background-white);
+  border-color: var(--krds-light-color-border-gray);
+  color: var(--krds-light-color-text-basic);
+  flex: 0 0 calc(100% / 5 - .8rem);
+}
+
 .krds-btn {
   background-color: var(--krds-button--color-primary-fill);
   border-color: var(--krds-button--color-primary-border);
@@ -10260,6 +10272,20 @@ caption {
   color: var(--krds-color-light-primary-60);
 }
 
+.button-list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 2.4rem;
+}
+
+.tab-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: .8rem;
+  flex-basis: 100%
+}
 
 
 .form-group {

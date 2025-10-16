@@ -1,0 +1,66 @@
+@charset "UTF-8";
+@import "../component/output.css";
+
+/* 공지사항 */
+.bord {
+	width:100%;
+	border-top:2px solid #383840;
+	border-bottom: 1px solid #C4C4C4;
+}
+.bord > h4{
+	display:flex;
+	padding: 24px 0px;
+}
+
+.bordlist dl{
+	display: flex;
+}
+
+.view_info {
+	border-top: 1px solid #C4C4C4;
+	border-left: 0;
+	border-right: 0;
+	padding: 24px 0px;
+	width: 100%;
+	display: flex;
+}
+.view_info dl {
+	width: calc(100% / 3);
+}
+.view_info dl dt {
+	display: inline-block;
+}
+.view_info dl dd {
+	display: inline-block;
+	padding-left: 50px;
+}
+.view_body {
+	padding: 20px 24px 50px;
+}
+.view_body > div {
+	min-height: 380px;
+}
+
+.prevNext_list {
+	border: 0.1rem solid #b1b8be;
+	border-radius: 1.2rem;
+	padding: 1.2rem 2rem;
+}
+
+.prevNext_list > dl {
+	overflow: hidden;
+	padding: 20px;
+}
+.prevNext_list > dl:first-child {
+	border-bottom: 1px solid #C4C4C4;
+
+}
+.view_file > dl {padding: 24px 0px;}
+.view_file > dl > dt {display: inline-block; vertical-align: middle; text-align: right; position: relative;}
+.prevNext_list > dl > dt {display: inline-block; vertical-align: middle; text-align: right; position: relative;}
+
+
+.prevNext_list > dl > dd {display: inline-block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; vertical-align: middle; padding-left: 30px; width: calc(100% - 75px);}
+.file_list > li > a {display: block; position: relative; padding-left: 25px;}
+.box_list {width: 100%; text-align: right; margin-top: 25px;}
+.list_btn {border: 1px solid #7D7D7D; min-width:50px; padding:0px 20px; height: 40px; line-height: 40px; position: relative; display: block;}
