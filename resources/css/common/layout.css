@@ -20,6 +20,11 @@
 	flex-direction: column;
 	gap: 1.4rem;
 }
+.main-inner{
+	height: 10.5rem;
+	width: 100%;
+	padding: 1.4rem;
+}
 
 .main-info,
 .short-list > li{
@@ -166,6 +171,18 @@
 	background: #EEF2F7;
 	height: 35.5rem;
 }
+
+/* 최근 공지사항 */
+.mnotice > li {
+	display: flex;
+	justify-content: space-between;
+	padding: 0.48rem 0rem;
+	cursor: pointer;
+}
+.mnotice > li > a { position: relative; display: flex; align-items: center; justify-content: flex-start; width: 100%; }
+.mnotice > li > a > p { display: inline-block; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mnotice > li > a > span { text-align: right; display: block; padding-left: 10px;}
+
 
 
 /* 공지사항 */
