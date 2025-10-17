@@ -1376,6 +1376,12 @@ caption {
   padding-bottom: 8rem;
 }
 
+#container .main-contents {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+
 .page-title-wrap {
   margin-bottom: var(--krds-pc-gap-layout-h1-h2);
 }

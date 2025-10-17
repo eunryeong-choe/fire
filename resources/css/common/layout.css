@@ -1,6 +1,173 @@
 @charset "UTF-8";
 @import "../component/output.css";
 
+/*메인*/
+.main-content {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 4rem 2rem;
+	box-sizing: border-box;
+}
+
+.intro-group {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2rem;
+}
+
+.main-info {
+	display: flex;
+	flex-direction: column;
+	gap: 1.4rem;
+}
+
+.main-info,
+.short-list > li{
+	background: var(--krds-light-color-background-white);
+	border: 0.1rem solid var(--krds-light-color-border-gray) ;
+	border-radius: 1.2rem;
+	padding: 2rem;
+}
+
+.short-list,
+.risklevel-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 2rem;
+}
+.short-list > li {
+	width: calc(50% - 1rem);
+	flex-shrink: 0;
+	height: 100%;
+	position: relative;
+}
+.short-list > li > a {
+	display: block;
+	height: 107px;
+	position: relative;
+}
+
+.title-justify{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+/* 위험 등급 색상 변수 */
+:root {
+  --risk-color-attention: #b0d6ff;  /* 관심 */
+  --risk-color-caution: #fff9da;    /* 주의 */
+  --risk-color-warning: #ffebd4;    /* 경계 */
+  --risk-color-severe: #ffdddd;     /* 심각 */
+	--risk-color-attention-second: #0177f5;  /* 관심 */
+  --risk-color-caution-second: #ffdb0f;    /* 주의 */
+  --risk-color-warning-second: #ff9720;    /* 경계 */
+  --risk-color-severe-second: #ff0d0d;     /* 심각 */
+}
+
+.risklevel-list .level-attention { background: var(--risk-color-attention); }
+.risklevel-list .level-caution   { background: var(--risk-color-caution); }
+.risklevel-list .level-warning   { background: var(--risk-color-warning); }
+.risklevel-list .level-severe    { background: var(--risk-color-severe); }
+
+.risklevel-list > li {
+	width: 100%;
+	flex-shrink: 0;
+	padding: 1rem 1.6rem 1rem 2.5rem;
+	border-radius: 1.2rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+}
+
+.risklevel-list > li::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0.8rem;
+	height: 100%;
+	z-index: 1;
+	border-radius: 1.2rem 0 0 1.2rem;
+}
+
+.risklevel-list .level-attention::after {
+  background-color: var(--risk-color-attention-second);
+}
+.risklevel-list .level-caution::after {
+  background-color: var(--risk-color-caution-second);
+}
+.risklevel-list .level-warning::after {
+  background-color: var(--risk-color-warning-second);
+}
+.risklevel-list .level-severe::after {
+  background-color: var(--risk-color-severe-second);
+}
+
+.risk-text {
+  display: flex;
+	flex-direction: column;
+	justify-content: end;
+	text-align: right;
+}
+
+.risk-text > li {
+	position: relative;
+	padding-right: 2rem;
+}
+
+.risk-text > li::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 0;
+	height: 1.2rem;
+	width: 1.2rem;
+}
+
+.risk-text .level-attention::before {
+  background-color: var(--risk-color-attention-second);
+}
+.risk-text .level-caution::before {
+  background-color: var(--risk-color-caution-second);
+}
+.risk-text .level-warning::before {
+  background-color: var(--risk-color-warning-second);
+}
+.risk-text .level-severe::before {
+  background-color: var(--risk-color-severe-second);
+}
+
+.region-text {
+	display: flex;
+}
+.region-text > li {
+	display: flex;
+	flex-direction: column;
+	width: calc(100% / 2);
+}
+.region-text > li > span {
+	font-size: var(--krds-pc-font-size-display-small);
+}
+
+
+.main-more,
+.risklevel-list .time > span{
+	display: flex;
+	align-items: center;
+	gap: .8rem;
+}
+
+/*메인 지도*/
+
+.weather-map {
+	background: #EEF2F7;
+	height: 35.5rem;
+}
+
+
 /* 공지사항 */
 .bord {
 	width:100%;
