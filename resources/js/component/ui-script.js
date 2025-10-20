@@ -88,13 +88,11 @@ const common = {
 const krds_mainMenuPC = {
   init() {
     const gnbMenu = document.querySelector(".krds-main-menu:not(.sample) .gnb-menu");
-
-    console.log('반가워요 저는 최은령이에용~');
+ 
 
 
     if (!gnbMenu) return;
 
-        console.log('반가워요 저는 최은령이에용~222');
 
 
     // gnb 속성설정

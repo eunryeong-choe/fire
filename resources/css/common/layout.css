@@ -19,7 +19,23 @@
 	display: flex;
 	flex-direction: column;
 	gap: 1.4rem;
+	justify-content: space-between;
 }
+
+.main-info.row {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 1.4rem;
+	height: 100%;
+}
+
+.main-info-group {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
 .main-inner{
 	height: 10.5rem;
 	width: 100%;
@@ -33,6 +49,55 @@
 	border-radius: 1.2rem;
 	padding: 2rem;
 }
+.short-group {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.short-tit {
+	position: relative;
+	padding-left: 10.5rem;
+}
+
+.short-tit::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+	background: url(../../img/component/icon/check.svg) no-repeat;
+	width: 8.5rem;
+	height: 7.8rem;
+}
+
+.risklevel-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.6rem;
+}
+
+.timeline {
+  position: relative;
+  width: 2px;
+  background-color: #3ba2ff;
+  height: 80%;
+}
+
+.timeline .dot {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background-color: #3ba2ff;
+	margin-bottom: 5.4rem;
+  border-radius: 50%;
+}
+
+.short-tit > em {
+	color: #53B089;
+}
 
 .short-list,
 .risklevel-list {
@@ -43,14 +108,28 @@
 }
 .short-list > li {
 	width: calc(50% - 1rem);
-	flex-shrink: 0;
-	height: 100%;
 	position: relative;
+	display: flex;
+	flex-shrink: 0;
+	height: 15.5rem;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: .8rem;
+	justify-content: space-between;
+	font-size: 1.5rem;
 }
 .short-list > li > a {
-	display: block;
-	height: 107px;
-	position: relative;
+	position: absolute;
+	right: 2rem;
+	padding-right: 2rem;
+	width: 2.8rem;
+	height: 2.8rem;
+	background: url(../../img/component/icon/ico-short.svg)no-repeat;
+}
+
+.short-list > li > span {
+	line-height: 2rem;
 }
 
 .title-justify{
@@ -58,6 +137,21 @@
 	justify-content: space-between;
 	align-items: center;
 }
+
+.location-tit {
+	display: flex;
+	align-items: center;
+	gap: .8rem;
+}
+
+.location-tit > em {
+	background: var( --risk-color-caution);
+	border: .1rem solid var(--risk-color-caution-second);
+	border-radius: .8rem;
+	padding: .4rem 1.2rem;
+}
+
+
 /* 위험 등급 색상 변수 */
 :root {
   --risk-color-attention: #b0d6ff;  /* 관심 */
@@ -110,16 +204,20 @@
   background-color: var(--risk-color-severe-second);
 }
 
-.risk-text {
-  display: flex;
+.risk-group {
+	display: flex;
 	flex-direction: column;
-	justify-content: end;
+	justify-content:flex-end;
 	text-align: right;
+	height: 100%;
 }
+
+
 
 .risk-text > li {
 	position: relative;
 	padding-right: 2rem;
+	font-size: 1.2rem;
 }
 
 .risk-text > li::before {
@@ -158,7 +256,7 @@
 }
 
 
-.main-more,
+.main-more > a,
 .risklevel-list .time > span{
 	display: flex;
 	align-items: center;
@@ -167,8 +265,150 @@
 
 /*메인 지도*/
 
-.weather-map {
+.weather-wrap {
 	background: #EEF2F7;
+	height: 35.5rem;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.weather-map {
+	background: url(../../img/map/weatherMap.svg)no-repeat center;
+	width: 34rem;
+	height: 35rem;
+	position: absolute;
+}
+
+.weather-map > dl {
+	display: block;
+	height: 3.5rem;
+	width: 5.5rem;
+	text-align: center;
+	position: absolute;
+}
+
+.weather-map > dl dt {
+	position: absolute;
+	width: 100%;
+	bottom: -.5rem;
+	text-align: right;
+	font-size: 1.2rem;
+	font-weight: 700;
+}
+
+.weather-map > dl dd img {
+	width: 3.5rem;
+}
+
+/*시도*/
+.gangreung {
+	top: 6.5rem;
+	left: 21rem;
+}
+
+.uljin {
+	top: 42%;
+	left: 82%;
+	transform: translate(-50%, -50%)
+}
+
+.daejeon {
+	top: 16.5rem;
+	left: 14rem;
+}
+
+.mokpo {
+	top: 30.5rem;
+	left: 7rem;
+}
+
+.seosan {
+	top: 15.5rem;
+	left: 7rem;
+}
+
+.chuncheon{
+	top: 5.5rem;
+	left: 17rem;
+}
+
+.incheon{
+	position: absolute;
+	top: -11.5rem;
+	left: 9rem;
+}	
+
+.gwangju{
+	top: 25.5rem;
+	left: 10.5rem;
+}	
+
+.jeju{
+	position: absolute;
+	top: 30.5rem;
+	left: 0rem;
+}	
+
+.ulsan{
+	top: 24.5rem;
+	left: 24.5rem;
+}	
+
+.daegu{
+	top: 20.5rem;
+	left: 21rem;
+}	
+
+.jeonju{
+	top: 21.5rem;
+	left: 10rem;
+}
+
+.yeosu{
+	top: 28.5rem;
+	left: 14rem;
+}	
+
+.andong{
+	top: 16.5rem;
+	left: 22rem;
+}	
+
+.masan{
+	top: 26.5rem;
+	left: 19rem;
+}	
+
+.chungju{
+	top: 13rem;
+	left: 16rem;
+}
+
+.pohang{
+	top: 19.5rem;
+	left: 26rem;
+}
+
+.suwon{
+	top: 11rem;
+	left: 12rem;
+}
+
+.seoul{
+	top: 7.5rem;
+	left: 12rem;
+}
+
+.baengnyeongdo{
+	top: 6.5rem;
+	left: 4rem;
+}
+
+.forest-fire-map {
+	background: url(../../img/map/forestFireMap.svg)no-repeat center;
 	height: 35.5rem;
 }
 
@@ -183,7 +423,79 @@
 .mnotice > li > a > p { display: inline-block; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .mnotice > li > a > span { text-align: right; display: block; padding-left: 10px;}
 
+.level-text > li {
+	font-size: 1.4rem;
+}
 
+.level-text > li span {
+	display: flex;
+	align-items: center;
+	gap: .8rem;
+	width: calc(100% - 22rem);
+}
+.level-text > li > em {
+	width: calc(100% - 20rem);
+}
+
+
+.scale-bar {
+	font-size: 1rem;
+  color: #1f1f1f;
+  display: inline-block;
+}
+
+.bar {
+  display: flex;
+  width: calc(100% - 4.2rem);
+  height: .8rem;
+  border: .1rem solid #1f1f1f;
+  box-sizing: border-box;
+	position: relative;
+}
+
+.bar .block:nth-child(1),
+.labels > span:nth-child(1) {
+	width: 8%
+}
+.bar .block:nth-child(2),
+.labels > span:nth-child(2) {
+	width: 8%
+}
+.bar .block:nth-child(3),
+.labels > span:nth-child(3) {
+	width: 32%
+}
+.bar .block:nth-child(4),
+.labels > span:nth-child(4) {
+	width: 32% 
+}
+.bar .block:nth-child(5),
+.labels > span:nth-child(5) {
+	width: 40%
+}
+
+.bar .block:nth-child(5)::before {
+	content: 'km';
+	position: absolute;
+	right: -2rem;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 1.4rem;
+
+}
+
+.black {
+  background-color: #1f1f1f;
+}
+
+.white {
+  background-color: #fff;
+}
+
+.labels {
+  display: flex;
+	width: 100%;
+}
 
 /* 공지사항 */
 .bord {
@@ -248,3 +560,42 @@
 .file_list > li > a {display: block; position: relative; padding-left: 25px;}
 .box_list {width: 100%; text-align: right; margin-top: 25px;}
 .list_btn {border: 1px solid #7D7D7D; min-width:50px; padding:0px 20px; height: 40px; line-height: 40px; position: relative; display: block;}
+
+
+@media screen and (max-width: 1150px) {
+	.intro-group {
+		display: flex;
+		flex-wrap: wrap;
+	}
+  
+	.main-info,
+	.main-info-group {
+		flex: 1 1 calc(50% - 3rem);
+	}
+
+	.short-group,
+	.main-info-half {
+		width: 100%;
+	}
+
+	.main-info-half {
+		flex-direction: row;
+	}
+
+}
+
+
+@media screen and (max-width: 1023px) {
+	.intro-group {
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+
+	.main-info-half {
+		flex-direction: column;
+	}
+
+	.short-tit {
+		margin-bottom: 2.4rem;
+	}
+}

@@ -27,10 +27,22 @@
 			<section class="intro-group">
 				<div class="main-info">
 					<h3>현위치 기반 산불위험정보</h3>
-					<div>
+					<div class="location-tit">
+						<i class="svg-icon ico-location"></i>
+						서울시 송파구
 						<em>산불위험주의</em>
 					</div>
-					<div>
+					<div class="risklevel-wrap">
+						<!--왼쪽 세로 선 start-->
+						 <div class="timeline">
+							<div class="dot"></div>
+							<div class="dot"></div>
+							<div class="dot"></div>
+							<div class="dot"></div>
+							<div class="dot"></div>
+						</div>
+						<!--왼쪽 세로 선 end-->
+						<!--오른쪽 위험등급 리스트 start-->
 						<ul class="risklevel-list">
 							<li class="level-caution ">
 								주의
@@ -98,17 +110,20 @@
 								</div>
 							</li>
 						</ul>
+						<!-- 오른쪽 위험등급 리스트 end-->
 					</div>
 				</div>
 				<div class="main-info">
 					<div class="title-justify">
 						<h3>산불위험등급</h3>
 						<div class="main-more">
+							<a>
 							자세히보기<i class="svg-icon ico-more"></i>
+							</a>
 						</div>
 					</div>
-					<div class="weather-map">
-						<div>
+					<div class="forest-fire-map">
+						<div class="risk-group">
 							<p>위험등급</p>
 							<ul class="risk-text">
 								<li class="level-severe">매우높음</li>
@@ -118,23 +133,45 @@
 							</ul>
 						</div>
 					</div>
+					<div class="scale-bar">
+					<div class="bar">
+						<div class="block black"></div>
+						<div class="block white"></div>
+						<div class="block black"></div>
+						<div class="block white"></div>
+						<div class="block black"></div>
+					</div>
+					<div class="labels">
+						<span>0</span>
+						<span>30</span>
+						<span>60</span>
+						<span>120</span>
+						<span>180</span>
+						<span>240</span>
+						<span>Km</span>
+					</div>
 				</div>
-				<div class="">
-					<div class="main-info ">
+				</div>
+				<div class="main-info-group main-info-half">
+					<div class="main-info row">
 						<div class="title-justify">
 							<h3>대형산불위험예보 발령현황</h3>
 							<div class="main-more">
-								더보기<i class="svg-icon ico-plus"></i>
+								<a>
+									더보기<i class="svg-icon ico-plus"></i>
+								</a>
 							</div>
 						</div>
 						<div class="main-inner">
 						</div>
 					</div>
-					<div class="main-info ">
+					<div class="main-info row">
 						<div class="title-justify">
 							<h3>소각산불징후예보 현황</h3>
 							<div class="main-more">
-								더보기<i class="svg-icon ico-plus"></i>
+								<a>
+									더보기<i class="svg-icon ico-plus"></i>
+								</a>
 							</div>
 						</div>
 						<div class="main-inner">
@@ -156,34 +193,128 @@
 				<div class="main-info">
 					<div class="title-justify">
 						<h3>날씨예보</h3>
-						<div class="main-more">자세히보기<i class="svg-icon ico-more"></i></div>
-					</div>
-					<div class="weather-map">
-						
-					</div>
-				</div>
-				<div class="">
-					<div class="main-info">
-						<h3>최고등급 위험지역</h3>
-						<div>
-							<ul class="mnotice">
-									<li>
-										<em>서울특별시 중구</em><p>80.00</p><span>매우높음</span>
-									</li>
-									<li>
-										<em>강원특별자치도 강릉시</em><p>70.00</p><span>높음</span>
-									</li>
-									<li>
-										<em>서울특별시 동대문구</em><p>60.00</p><span>다소높음</span>
-									</li>
-              </ul>
+						<div class="main-more">
+							<a>
+							자세히보기<i class="svg-icon ico-more"></i>
+							</a>
 						</div>
 					</div>
-					<div class="main-info">
+					<div class="weather-wrap">
+						<div class="weather-map">
+							<dl class="gangreung">
+								<dt>강릉</dt>
+								<dd><img src="./resources/img/map/W01.svg" alt="맑음" title="맑음"/></dd>
+							</dl>
+							<dl class="uljin">
+								<dt>울진</dt>
+								<dd><img src="./resources/img/map/W02.svg" alt="구름많음" title="구름많음"/></dd>
+							</dl>
+							<dl class="daejeon">
+								<dt>대전</dt>
+								<dd><img src="./resources/img/map/W03.svg" alt="흐림" title="흐림"/></dd>
+							</dl>
+							<dl class="mokpo">
+								<dt>목포</dt>
+								<dd><img src="./resources/img/map/W04.svg" alt="비" title="비"/></dd>
+							</dl>
+							<dl class="seosan">
+								<dt>서산</dt>
+								<dd><img src="./resources/img/map/W05.svg" alt="비눈" title="비눈"/></dd>
+							</dl>
+							<dl class="chuncheon">
+								<dt>춘천</dt>
+								<dd><img src="./resources/img/map/W06.svg" alt="맑음" title="맑음"/></dd>
+							</dl>
+							<dl class="incheon">
+								<dt>인천</dt>
+								<dd><img src="./resources/img/map/W07.svg" alt="눈" title="눈"/></dd>
+							</dl>
+							<dl class="gwangju">
+								<dt>광주</dt>
+								<dd><img src="./resources/img/map/W08.svg" alt="구름조금" title="구름조금"/></dd>
+							</dl>
+							<dl class="jeju">
+								<dt>제주</dt>
+								<dd><img src="./resources/img/map/W01.svg" alt="맑음" title="맑음"/></dd>
+							</dl>
+							<dl class="ulsan">
+								<dt>울산</dt>
+								<dd><img src="./resources/img/map/W01.svg" alt="맑음" title="맑음"/></dd>
+							</dl>
+							<dl class="daegu">
+								<dt>대구</dt>
+								<dd><img src="./resources/img/map/W01.svg" alt="맑음" title="맑음"/></dd>
+							</dl>
+							<dl class="jeonju">
+								<dt>전주</dt>
+								<dd><img src="./resources/img/map/W01.svg" alt="맑음" title="맑음"/></dd>
+							</dl>
+							<dl class="yeosu">
+								<dt>여수</dt>
+								<dd><img src="./resources/img/map/W01.svg" alt="맑음" title="맑음"/></dd>
+							</dl>
+							<dl class="andong">
+								<dt>안동</dt>
+								<dd><img src="./resources/img/map/W01.svg" alt="맑음" title="맑음"/></dd>
+							</dl>
+							<dl class="masan">
+								<dt>창원(마산)</dt>
+								<dd><img src="./resources/img/map/W01.svg" alt="맑음" title="맑음"/></dd>
+							</dl>
+							<dl class="chungju">
+								<dt>청주</dt>
+								<dd><img src="./resources/img/map/W01.svg" alt="맑음" title="맑음"/></dd>
+							</dl>
+							<dl class="pohang">
+								<dt>포항</dt>
+								<dd><img src="./resources/img/map/W01.svg" alt="맑음" title="맑음"/></dd>
+							</dl>
+							<dl class="suwon">
+								<dt>수원</dt>
+								<dd><img src="./resources/img/map/W01.svg" alt="맑음" title="맑음"/></dd>
+							</dl>
+							<dl class="seoul">
+								<dt>서울</dt>
+								<dd><img src="./resources/img/map/W01.svg" alt="맑음" title="맑음"/></dd>
+							</dl>
+							<dl class="baengnyeongdo">
+								<dt>백령도</dt>
+								<dd><img src="./resources/img/map/W01.svg" alt="맑음" title="맑음"/></dd>
+							</dl>
+						 </div>
+					</div>
+				</div>
+				<div class="main-info-group">
+					<div class="main-info row">
+						<h3>최고등급 위험지역</h3>
+						<div>
+							<ul class="mnotice level-text">
+									<li>
+										<em>서울특별시 중구</em>
+										<p>80.00</p>
+										<span><img src="./resources/img/map/severe.svg" alt="매우높음"/>매우높음</span>
+									</li>
+									<li>
+										<em>강원특별자치도 강릉시</em>
+										<p>70.00</p>
+										<span><img src="./resources/img/map/warning.svg" alt="높음"/>높음</span>
+									</li>
+									<li>
+										<em>서울특별시 동대문구</em>
+										<p>60.00</p>
+										<span><img src="./resources/img/map/caution.svg" alt="다소높음"/>다소높음</span>
+									</li>
+              </ul>
+							<p>현재실황 : 2025년 09월 11일 08시 30분 발표</p>
+						</div>
+					</div>
+					<div class="main-info row">
 						<div class="title-justify">
 							<h3>공지사항</h3>
 							<div class="main-more">
+								<a>
 								더보기<i class="svg-icon ico-plus"></i>
+								</a>
 							</div>
 						</div>
 						<div>
@@ -205,37 +336,34 @@
 									</li>
               </ul>
 						</div>
-						<div>
-							<p>현재실황:<span>2025년 09월 11일 08시 30분 발표</span></p>
-						</div>
 					</div>
 				</div>
-				<div>
-					<div>
+				<div class="short-group">
+					<div class="short-tit">
 						<h1>빠른 조회 서비스</h1>
 						<em>산불위험예보 정보를 제공합니다</em>
 					</div>
 					<div>
 						<ul class="short-list">
 							<li>
-								<a>
-									<span>실시간불정보 바로가기</span>
-								</a>
+								<a></a>
+								<img src="resources/img/component/icon/realTime.svg" alt="실시간불정보아이콘" />
+								<span>실시간불정보 바로가기</span>
 							</li>
 							<li>
-								<a>
-									<span>현위치상세산불위험등급 바로가기</span>									
-								</a>
+								<a></a>
+								<img src="resources/img/component/icon/currentLocation.svg" alt="현위치아이콘" />
+								<span>현위치상세산불위험등급 바로가기</span>								
 							</li>
 							<li>
-								<a>
-									<span>장기예보 바로가기</span>
-								</a>
+								<a></a>
+								<img src="resources/img/component/icon/longTerm.svg" alt="장기예보아이콘" />
+								<span>장기예보 바로가기</span>
 							</li>
 							<li>
-								<a>
-									<span>SNS정보 바로가기</span>
-								</a>
+								<a></a>
+								<img src="resources/img/component/icon/sns.svg" alt="SNS아이콘" />
+								<span>SNS정보 바로가기</span>
 							</li>
 						</ul>
 					</div>

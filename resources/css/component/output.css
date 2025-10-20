@@ -599,6 +599,17 @@
   -webkit-mask-image: url(../../img/component/icon/ico_tooltip.svg);
   mask-image: url(../../img/component/icon/ico_tooltip.svg);
 }
+.svg-icon.ico-time {
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: contain;
+  -webkit-mask-image: url(../../img/component/icon/ico_time.svg);
+  mask-image: url(../../img/component/icon/ico_time.svg);
+}
+
 .svg-icon.ico-urgent-danger {
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center center;
@@ -649,6 +660,7 @@
   -webkit-mask-image: url(../../img/component/icon/ico_sns_x.svg);
   mask-image: url(../../img/component/icon/ico_sns_x.svg);
 }
+
 .svg-icon.ico-youtube {
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center center;
@@ -699,6 +711,18 @@
   -webkit-mask-image: url(../../img/component/icon/ico_login_certify_go.svg);
   mask-image: url(../../img/component/icon/ico_login_certify_go.svg);
 }
+.svg-icon.ico-location {
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: contain;
+  -webkit-mask-image: url(../../img/component/icon/ico_location.svg);
+  mask-image: url(../../img/component/icon/ico_location.svg);
+}
+
+
 .svg-icon.ico-global {
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center center;
@@ -1380,6 +1404,8 @@ caption {
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 6rem;
 }
 
 .page-title-wrap {
