@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="resources/css/common/common.css" />
+	<link rel="stylesheet" tyep="text/css" href="resources/css/component/output.css" />
+	<link rel="stylesheet" tyep="text/css" href="resources/css/common/maplayout.css" />
+	<link rel="stylesheet" tyep="text/css" href="resources/css/plugin/swiper-bundle.min.css" />
+
+	<script src="resources/js/plugin/swiper-bundle.min.js" defer></script>
+	<script src="resources/js/component/ui-script.js" defer></script>
+
+	<title>지도</title>
+
+</head>
+<body>
+	<div id="wrapmap">
+		<!-- headermap start -->
+			<div id="headermap">
+				<div class="headermap-inner">
+					<div>
+						home
+					</div>
+					<ul class="heademap-list">
+						<li>
+							<a>
+								<i class="svg-icon ico-sch"></i>
+								현재산불
+							</a>
+						</li>
+						<li><a>강원산불</a></li>
+						<li><a>경북산불</a></li>
+						<li><a>상세산불</a></li>
+						<li><a>대형산불</a></li>
+					</ul>
+				</div>
+			</div>
+		<!-- headermap end  -->
+		<!-- topcontents start -->
+		<div class="topcontents">
+			<div class="topcontents-left">
+				<div class="search-group topcontents-layout">
+					<span>검색레이어</span>
+				</div>
+				<div class="date-group topcontents-layout">
+					<span>날짜선택</span>
+					<ul>
+						<li>9월15일</li>
+						<li>9월16일</li>
+						<li>9월17일</li>
+						<li>9월18일</li>
+						<li>9월19일</li>
+					</ul>
+				</div>
+				<div class="time-group topcontents-layout">
+					<span>시간선택</span>
+					<ul>
+						<li>3시</li>
+						<li>6시</li>
+						<li>9시</li>
+						<li>12시</li>
+						<li>15시</li>
+						<li>18시</li>
+						<li>21시</li>
+						<li>24시</li>
+					</ul>
+				</div>
+			</div>
+			<div class="topcontents-right">
+				<div calss="">
+					현재실황: 2025년 09월 01일 16시 30분 발표
+				</div>
+				<div class="result-group topcontents-layout">
+					<span>결과패널</span>
+				</div>
+				<div>
+
+				</div>
+			</div>
+		</div>
+		<!-- topcontents end -->
+		<!-- container start -->
+		<div id="container">
+			<div>
+
+			
+			<!-- 왼쪽패널 start--><!--
+			<div id="leftWrap" class="side-wrap left">
+				<div id="left_panel" class="layout-section">
+					<section>
+							<h2 class="panel_tit">검색기능</h2>
+							<div class="">
+									<div>
+
+									</div>
+									<div>
+
+									</div>
+							</div>
+					</section>
+					<section>
+							<h2 class="panel_tit">레이어 목록</h2>
+							<div class="cont">
+							</div>
+							<div class="">
+
+							</div>
+					</section>
+				</div>
+				<button id="leftToggleBtn" class="panel-toggle left"></button>	
+			</div>-->
+			<!-- 왼쪽패널 end-->
+			<!--오른쪽패널 start-->
+			<div id="rightWrap" class="side-wrap right">
+				<div id="right_panel" class="layout-section">
+					<div>
+						<div class="cont">
+							<h2 class="panel_tit">현재기상정보</h2>
+							<!-- tab -->
+							<div class="krds-tab-area layer">
+								<!-- tab list -->
+								<div class="tab line full">
+									<ul role="tablist">
+										<li id="tab_login_01" role="tab" aria-selected="true" aria-controls="panel_login_01" class="active">
+											<button type="button" class="btn-tab">산림청<i class="sr-only created"> 선택됨</i></button>
+										</li>
+										<li id="tab_login_02" role="tab" aria-selected="false" aria-controls="panel_login_02">
+											<button type="button" class="btn-tab">기상청</button>
+										</li>
+									</ul>
+								</div>
+								<!-- //tab list -->
+								
+								<!-- tab contents -->
+								<div class="tab-conts-wrap">
+									<section id="panel_login_01" aria-labelledby="tab_login_01" class="tab-conts active" data-quick-nav="false">
+										<h3 class="sr-only">산림청</h3>
+										<!-- table -->
+										<div class="map-table-wrap">
+											<table class="tbl col data">
+												<caption>산림청</caption>
+												<colgroup>
+													<col style="width: 20%;">
+													<col style="width: 20%;">
+													<col style="width: 20%;">
+													<col style="width: 20%;">
+													<col style="width: 20%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">관측소</th>
+														<th scope="col">기온℃</th>
+														<th scope="col">습도%</th>
+														<th scope="col">풍속㎧</th>
+														<th scope="col">강수량㎜</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th scope="row">번호</th>
+														<td>-</td>
+														<td>내용이 들어갑니다.</td>
+														<td>작성자</td>
+														<td>작성일</td>
+													</tr>
+													<tr>
+														<th scope="row">번호</th>
+														<td>-</td>
+														<td>내용이 들어갑니다.</td>
+														<td>작성자</td>
+														<td>작성일</td>
+													</tr>
+													<tr>
+														<th scope="row">번호</th>
+														<td>-</td>
+														<td>내용이 들어갑니다.</td>
+														<td>작성자</td>
+														<td>작성일</td>
+													</tr>
+													<tr>
+														<th scope="row">번호</th>
+														<td>-</td>
+														<td>내용이 들어갑니다.</td>
+														<td>작성자</td>
+														<td>작성일</td>
+													</tr>
+													<tr>
+														<th scope="row">번호</th>
+														<td>-</td>
+														<td>내용이 들어갑니다.</td>
+														<td>작성자</td>
+														<td>작성일</td>
+													</tr>
+													<tr>
+														<th scope="row">번호</th>
+														<td>-</td>
+														<td>내용이 들어갑니다.</td>
+														<td>작성자</td>
+														<td>작성일</td>
+													</tr>
+													<tr>
+														<th scope="row">번호</th>
+														<td>-</td>
+														<td>내용이 들어갑니다.</td>
+														<td>작성자</td>
+														<td>작성일</td>
+													</tr>
+													<tr>
+														<th scope="row">번호</th>
+														<td>-</td>
+														<td>내용이 들어갑니다.</td>
+														<td>작성자</td>
+														<td>작성일</td>
+													</tr>
+													<tr>
+														<th scope="row">번호</th>
+														<td>-</td>
+														<td>내용이 들어갑니다.</td>
+														<td>작성자</td>
+														<td>작성일</td>
+													</tr>
+													<tr>
+														<th scope="row">번호</th>
+														<td>-</td>
+														<td>내용이 들어갑니다.</td>
+														<td>작성자</td>
+														<td>작성일</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<!-- //table -->
+									</section>
+									<section id="panel_login_02" aria-labelledby="tab_login_02" class="tab-conts" data-quick-nav="false">
+										<h3 class="sr-only">탭 영역 타이틀</h3>
+										탭 2 영역
+									</section>
+								</div>
+								<!-- //tab contents -->
+							</div>
+							<!-- //tab -->
+							<div>
+							<h2 class="panel_tit">현재산불 위험지수</h2>
+									<div>
+										<h3 class="sr-only">산림청</h3>
+										<!-- table -->
+										<div class="map-table-wrap">
+											<table class="tbl col data">
+												<caption>산림청</caption>
+												<colgroup>
+													<col style="width: 33.333%;">
+													<col style="width: 33.333%;">
+													<col style="width: 33.333%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">지역</th>
+														<th scope="col">등급</th>
+														<th scope="col">지수</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th scope="row">전국</th>
+														<td>-</td>
+														<td>23.4</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<!-- //table -->
+									</div>
+								</div>
+						</div>		
+					</div>
+				</div>
+				<button id="rightToggleBtn" class="panel-toggle right"></button>
+			</div>
+			<!--오른쪽패널 end-->
+			<div>
+				
+			</div>
+			<div class="map-btnlist">
+				<div class="map-btnbox-top">
+					<div>
+						<button class="btn_pluss"><span>확대</span></button>
+						<button class="btn_minus"><span>축소</span></button>
+					</div>
+					<div>
+						<button class="btn_all"><span>전체보기</span></button>
+					</div>
+					<div>
+						<button class="btn_ruler"><span>거리재기</span></button>
+						<button class="btn_area"><span>면적재기</span></button>
+						<button class="btn_sync"><span>지우기</span></button>
+						<button class="btn_down"><span>저장</span></button>
+					</div>
+				</div>
+			</div>
+			<div class="legend-list">
+				<div class="map-btnbox-bottom">
+					<div>
+						<button><span>범례</span></button>
+					</div>
+				</div>
+			</div>
+			<h2 class="visually-hidden">본문컨텐츠-지도</h2>
+		</div>
+		</div>
+		<!-- container end -->
+	</div>
+</body>
+</html>
