@@ -20,21 +20,14 @@
 		<!-- headermap start -->
 			<div id="headermap">
 				<div class="headermap-inner">
-					<div>
-						home
+					<button class="maphome"><span>Home</span></button>
+					<div class="heademap-list">
+						<button class="forestfires01"><span>현재산불</span></button>
+						<button class="forestfires02"><span>강원산불</span></button>
+						<button class="forestfires03"><span>경북산불</span></button>
+						<button class="forestfires04"><span>상세산불</span></button>
+						<button class="forestfires05"><span>대형산불</span></button>
 					</div>
-					<ul class="heademap-list">
-						<li>
-							<a>
-								<i class="svg-icon ico-sch"></i>
-								현재산불
-							</a>
-						</li>
-						<li><a>강원산불</a></li>
-						<li><a>경북산불</a></li>
-						<li><a>상세산불</a></li>
-						<li><a>대형산불</a></li>
-					</ul>
 				</div>
 			</div>
 		<!-- headermap end  -->
@@ -84,44 +77,156 @@
 		<!-- container start -->
 		<div id="container">
 			<div>
-
-			
-			<!-- 왼쪽패널 start--><!--
+			<!-- 왼쪽패널 start-->
 			<div id="leftWrap" class="side-wrap left">
 				<div id="left_panel" class="layout-section">
 					<section>
 							<h2 class="panel_tit">검색기능</h2>
-							<div class="">
-									<div>
+							<div class="search-section-map">
+							<!-- tab -->
+							<div class="krds-tab-area layer">
+								<!-- tab list -->
+								<div class="tab maptab line full">
+									<ul role="tablist">
+										<li id="tab_login_03" role="tab" aria-selected="true" aria-controls="panel_login_03" class="active">
+											<button type="button" class="btn-tab">지역검색<i class="sr-only created"> 선택됨</i></button>
+										</li>
+										<li id="tab_login_04" role="tab" aria-selected="false" aria-controls="panel_login_04">
+											<button type="button" class="btn-tab">좌표검색</button>
+										</li>
+									</ul>
+								</div>
+								<!-- //tab list -->
+								
+								<!-- tab contents -->
+								<div class="tab-conts-wrap">
+									<section id="panel_login_03" aria-labelledby="tab_login_03" class="tab-conts active" data-quick-nav="false">
+										<h3 class="sr-only">지역검색</h3>
+										<div class="sch-map">
+											<!-- //폼그룹 -->	
+											<div class="form-group label">
+												<div class="form-tit-map">
+													<label for="select_name">시도명</label>
+												</div>
+												<div class="form-conts-map">
+													<select id="select_size_medium" class="krds-form-select map medium" title="선택">
+														<option value="" selected>시/군/구 전체</option>
+														<option value="">수성구</option>
+														<option value="">달서구</option>
+														<option value="">달성구</option>
+														<option value="">서구</option>
+													</select>
+												</div>
+											</div>
+											<!-- //폼그룹 -->
+											<div class="form-group label">
+												<div class="form-tit-map">
+													<label for="select_name">시군구명</label>
+												</div>
+												<div class="form-conts-map">
+													<select id="select_size_medium" class="krds-form-select map medium" title="선택">
+														<option value="" selected>읍/면/동 전체</option>
+														<option value="">수성구</option>
+														<option value="">달서구</option>
+														<option value="">달성구</option>
+														<option value="">서구</option>
+													</select>
+												</div>
+											</div>
+											<!-- //폼그룹 -->	
+											 <div class="form-group label">
+												<div class="form-tit-map">
+													<label for="select_name">읍면동명</label>
+												</div>
+												<div class="form-conts-map">
+													<select id="select_size_medium" class="krds-form-select map medium" title="선택">
+														<option value="" selected>읍/면/동 전체</option>
+														<option value="">수성구</option>
+														<option value="">달서구</option>
+														<option value="">달성구</option>
+														<option value="">서구</option>
+													</select>
+												</div>
+											</div>
+											<!-- //폼그룹 -->
+											<div class="button-list">
+												<button type="button" class="krds-btn secondary medium">
+													<i class="svg-icon ico-sch"></i>
+													검색
+												</button>
+											</div>
 
-									</div>
-									<div>
-
-									</div>
+										</div>
+									</section>
+									<section id="panel_login_04" aria-labelledby="tab_login_04" class="tab-conts" data-quick-nav="false">
+										<h3 class="sr-only">좌표검색</h3>
+										탭 2 영역
+									</section>
+								</div>
+								<!-- //tab contents -->
+							</div>
 							</div>
 					</section>
 					<section>
 							<h2 class="panel_tit">레이어 목록</h2>
 							<div class="cont">
-							</div>
-							<div class="">
+								<div class="search-section-map">
+									<div>
+										<div class="form-group label">
+											<div class="form-tit">
+												<label for="select_name">행정구역</label>
+											</div>
+										</div>
+										<div class="form-group label">
+											<div class="form-tit">
+												<label for="opacity-range">투명도</label>
+												<input type="range" min="0" max="100" value="60">
+											</div>
+										</div>
+									</div>
+									<!-- radio button -->
+									<div class="form-group label">
+										<div class="form-tit">
+											<label for="select_name">배경지도</label>
+										</div>
+										<div class="krds-check-area">
+											<div class="krds-form-check medium">
+												<input type="radio" name="rdo_2-1" id="rdo_2-2" checked>
+												<label for="rdo_2-2">위성맵</label>
+											</div>
+											<div class="krds-form-check medium">
+												<input type="radio" name="rdo_2-1" id="rdo_2-2">
+												<label for="rdo_2-2">일반맵</label>
+											</div>
+										</div>
+									</div>
+									<!-- //radio button -->
 
+								</div>
+							</div>
+							<div>
+								<ul class="layer-button-list">
+									<li><button type="button" class="krds-btn tertiary medium">산불위험지수</button></li>
+									<li><button type="button" class="krds-btn tertiary medium">산불위험지도</button></li>
+									<li><button type="button" class="krds-btn tertiary medium">기온</button></li>
+									<li><button type="button" class="krds-btn tertiary medium">강수량</button></li>
+								</ul>
 							</div>
 					</section>
 				</div>
 				<button id="leftToggleBtn" class="panel-toggle left"></button>	
-			</div>-->
+			</div>
 			<!-- 왼쪽패널 end-->
 			<!--오른쪽패널 start-->
 			<div id="rightWrap" class="side-wrap right">
 				<div id="right_panel" class="layout-section">
 					<div>
-						<div class="cont">
+						<div class="panel--cont">
 							<h2 class="panel_tit">현재기상정보</h2>
 							<!-- tab -->
 							<div class="krds-tab-area layer">
 								<!-- tab list -->
-								<div class="tab line full">
+								<div class="tab maptab line full">
 									<ul role="tablist">
 										<li id="tab_login_01" role="tab" aria-selected="true" aria-controls="panel_login_01" class="active">
 											<button type="button" class="btn-tab">산림청<i class="sr-only created"> 선택됨</i></button>
@@ -161,63 +266,63 @@
 													<tr>
 														<th scope="row">번호</th>
 														<td>-</td>
-														<td>내용이 들어갑니다.</td>
+														<td>내용</td>
 														<td>작성자</td>
 														<td>작성일</td>
 													</tr>
 													<tr>
 														<th scope="row">번호</th>
 														<td>-</td>
-														<td>내용이 들어갑니다.</td>
+														<td>내용</td>
 														<td>작성자</td>
 														<td>작성일</td>
 													</tr>
 													<tr>
 														<th scope="row">번호</th>
 														<td>-</td>
-														<td>내용이 들어갑니다.</td>
+														<td>내용</td>
 														<td>작성자</td>
 														<td>작성일</td>
 													</tr>
 													<tr>
 														<th scope="row">번호</th>
 														<td>-</td>
-														<td>내용이 들어갑니다.</td>
+														<td>내용</td>
 														<td>작성자</td>
 														<td>작성일</td>
 													</tr>
 													<tr>
 														<th scope="row">번호</th>
 														<td>-</td>
-														<td>내용이 들어갑니다.</td>
+														<td>내용</td>
 														<td>작성자</td>
 														<td>작성일</td>
 													</tr>
 													<tr>
 														<th scope="row">번호</th>
 														<td>-</td>
-														<td>내용이 들어갑니다.</td>
+														<td>내용</td>
 														<td>작성자</td>
 														<td>작성일</td>
 													</tr>
 													<tr>
 														<th scope="row">번호</th>
 														<td>-</td>
-														<td>내용이 들어갑니다.</td>
+														<td>내용</td>
 														<td>작성자</td>
 														<td>작성일</td>
 													</tr>
 													<tr>
 														<th scope="row">번호</th>
 														<td>-</td>
-														<td>내용이 들어갑니다.</td>
+														<td>내용</td>
 														<td>작성자</td>
 														<td>작성일</td>
 													</tr>
 													<tr>
 														<th scope="row">번호</th>
 														<td>-</td>
-														<td>내용이 들어갑니다.</td>
+														<td>내용</td>
 														<td>작성자</td>
 														<td>작성일</td>
 													</tr>
@@ -241,6 +346,26 @@
 								<!-- //tab contents -->
 							</div>
 							<!-- //tab -->
+							<div class="search-section-map">
+								<!-- 폼그룹 start-->
+								<div class="search-group-map">
+									<div class="form-tit-map">
+										<div class="form-conts-map">
+											<select id="select_size_medium" class="krds-form-select map" title="선택">
+												<option value="" selected>시도선택</option>
+												<option value="">서울특별시</option>
+												<option value="">부산광역시</option>
+												<option value="">대구광역시</option>
+												<option value="">인천광역시</option>
+												<option value="">광주광역시</option>
+											</select>
+										</div>
+										<span>일출 정보없음</span>
+										<span>일출 정보없음</span>
+									</div>
+								</div>
+								<!-- //폼그룹 end-->		
+							</div>
 							<div>
 							<h2 class="panel_tit">현재산불 위험지수</h2>
 									<div>
@@ -267,6 +392,51 @@
 														<td>-</td>
 														<td>23.4</td>
 													</tr>
+													<tr>
+														<th scope="row">전국</th>
+														<td>-</td>
+														<td>23.4</td>
+													</tr>
+													<tr>
+														<th scope="row">전국</th>
+														<td>-</td>
+														<td>23.4</td>
+													</tr>
+													<tr>
+														<th scope="row">전국</th>
+														<td>-</td>
+														<td>23.4</td>
+													</tr>
+													<tr>
+														<th scope="row">전국</th>
+														<td>-</td>
+														<td>23.4</td>
+													</tr>
+													<tr>
+														<th scope="row">전국</th>
+														<td>-</td>
+														<td>23.4</td>
+													</tr>
+													<tr>
+														<th scope="row">전국</th>
+														<td>-</td>
+														<td>23.4</td>
+													</tr>
+													<tr>
+														<th scope="row">전국</th>
+														<td>-</td>
+														<td>23.4</td>
+													</tr>
+													<tr>
+														<th scope="row">전국</th>
+														<td>-</td>
+														<td>23.4</td>
+													</tr>
+													<tr>
+														<th scope="row">전국</th>
+														<td>-</td>
+														<td>23.4</td>
+													</tr>
 												</tbody>
 											</table>
 										</div>
@@ -279,8 +449,28 @@
 				<button id="rightToggleBtn" class="panel-toggle right"></button>
 			</div>
 			<!--오른쪽패널 end-->
-			<div>
-				
+			<div class="index-map">
+				<div class="index-map-header">
+					<span>인덱스맵</span>
+					<button class="copy-btn" title="복사">
+						<svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+							<path d="M8 8h12v12H8z" stroke="#666" stroke-width="2"/>
+							<path d="M4 4h12v12H4z" stroke="#666" stroke-width="2"/>
+						</svg>
+					</button>
+				</div>
+
+				<div class="index-map-preview">
+					<img src="map-sample.png" alt="인덱스맵 미리보기" />
+				</div>
+
+				<div class="index-map-scale">
+					<select>
+						<option>1:1,155,581</option>
+						<option>1:500,000</option>
+						<option>1:250,000</option>
+					</select>
+				</div>
 			</div>
 			<div class="map-btnlist">
 				<div class="map-btnbox-top">
@@ -303,6 +493,24 @@
 				<div class="map-btnbox-bottom">
 					<div>
 						<button><span>범례</span></button>
+					</div>
+				</div>
+				<div class="map-btnbox-legend">
+					<div class="fire-risk-legend">
+						<h4>산불위험지수</h4>
+						<div class="color-bar"></div>
+						<div class="labels">
+							<span>100</span>
+							<span>90</span>
+							<span>80</span>
+							<span>70</span>
+							<span>60</span>
+							<span>50</span>
+							<span>40</span>
+							<span>30</span>
+							<span>20</span>
+							<span>10</span>
+						</div>
 					</div>
 				</div>
 			</div>

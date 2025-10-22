@@ -1776,17 +1776,18 @@ caption {
 }
 .krds-btn.tertiary {
   background-color: var(--krds-button--color-tertiary-fill);
-  border-color: var(--krds-button--color-tertiary-border);
-  color: var(--krds-button--color-tertiary-text);
+  border-color: var(--krds-button--secondary-border);
+  color: var(--krds-button--color-secondary-text);
 }
 .krds-btn.tertiary:not(.icon) .svg-icon {
   background-color: var(--krds-button--color-tertiary-text);
 }
 .krds-btn.tertiary:hover {
-  background-color: var(--krds-button--color-tertiary-fill-hover);
+  background-color: var(--krds-button--color-secondary-fill);
 }
 .krds-btn.tertiary:active, .krds-btn.tertiary:focus {
-  background-color: var(--krds-button--color-tertiary-fill-pressed);
+  background-color: var(--krds-light-color-button-primary-fill);
+  color: var(--krds-light-color-text-inverse-static)
 }
 .krds-btn.tertiary[disabled], .krds-btn.tertiary.disabled {
   background-color: var(--krds-button--color-tertiary-fill-disabled);
@@ -2781,6 +2782,8 @@ caption {
   position: relative;
   width: 100%;
   gap: 0;
+  border: .1rem var(--krds-light-color-border-gray);
+  border-radius: .8rem;
 }
 .tab.full > ul > li {
   flex: 1 1 0px;
@@ -2820,31 +2823,14 @@ caption {
   min-width: var(--krds-tab--button-size-min-width);
   padding: 0 var(--krds-tab--line-button-padding);
 }
-.tab.line .btn-tab:before {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  content: "";
-  width: 0;
-  height: 0.4rem;
-  background-color: var(--krds-tab--line-button-color-line-active);
-  transition: var(--krds-transition-base);
-}
-.tab.line .active .btn-tab {
-  color: var(--krds-tab--line-button-color-text-active);
-}
+
+
 .tab.line .active .btn-tab:before {
   position: absolute;
   left: 0;
   width: 100%;
 }
-.tab.line.full .btn-tab {
-  border: 0;
-  border-bottom: 2px solid var(--krds-tab--line-button-color-border);
-}
-.tab.line.full .btn-tab:before {
-  bottom: -0.2rem;
-}
+
 
 .tab-conts-wrap {
   width: 100%;
@@ -10336,7 +10322,6 @@ caption {
   justify-content: flex-start;
   flex-direction: column;
   gap: var(--krds-form-group--gap);
-  width: 100%;
 }
 .form-group, 
 .form-group
@@ -10350,8 +10335,8 @@ caption {
   align-items: center;
 }
 .form-label,
-.form-tit
- {
+.form-tit {
+
 }
 
 .form-group .form-conts {
