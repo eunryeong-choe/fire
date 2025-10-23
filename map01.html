@@ -11,6 +11,7 @@
 
 	<script src="resources/js/plugin/swiper-bundle.min.js" defer></script>
 	<script src="resources/js/component/ui-script.js" defer></script>
+	<script src="resources/js/component/ui-map-script.js" defer></script>
 
 	<title>지도</title>
 
@@ -22,7 +23,7 @@
 				<div class="headermap-inner">
 					<button class="maphome"><span>Home</span></button>
 					<div class="heademap-list">
-						<button class="forestfires01"><span>현재산불</span></button>
+						<button class="forestfires01 active"><span>현재산불</span></button>
 						<button class="forestfires02"><span>강원산불</span></button>
 						<button class="forestfires03"><span>경북산불</span></button>
 						<button class="forestfires04"><span>상세산불</span></button>
@@ -35,38 +36,38 @@
 		<div class="topcontents">
 			<div class="topcontents-left">
 				<div class="search-group topcontents-layout">
-					<span>검색레이어</span>
+					<button>검색레이어</button>
 				</div>
 				<div class="date-group topcontents-layout">
-					<span>날짜선택</span>
-					<ul>
-						<li>9월15일</li>
-						<li>9월16일</li>
-						<li>9월17일</li>
-						<li>9월18일</li>
-						<li>9월19일</li>
-					</ul>
+					<button class="date-toggle">날짜선택</button>
+						<div class="date-list">
+							<button>9월15일</button>
+							<button>9월16일</button>
+							<button>9월17일</button>
+							<button>9월18일</button>
+							<button>9월19일</button>
+						</div>
 				</div>
 				<div class="time-group topcontents-layout">
-					<span>시간선택</span>
-					<ul>
-						<li>3시</li>
-						<li>6시</li>
-						<li>9시</li>
-						<li>12시</li>
-						<li>15시</li>
-						<li>18시</li>
-						<li>21시</li>
-						<li>24시</li>
-					</ul>
+					<button clas="time-toggle">시간선택</button>
+					<div class="time-list">
+						<button class="active">3시</button>
+						<button>6시</button>
+						<button>9시</button>
+						<button>12시</button>
+						<button>15시</button>
+						<button>18시</button>
+						<button>21시</button>
+						<button>24시</button>
+					</div>
 				</div>
 			</div>
 			<div class="topcontents-right">
-				<div calss="">
+				<div class="todaytext">
 					현재실황: 2025년 09월 01일 16시 30분 발표
 				</div>
 				<div class="result-group topcontents-layout">
-					<span>결과패널</span>
+					<button>결과패널</button>
 				</div>
 				<div>
 
@@ -171,14 +172,15 @@
 							<h2 class="panel_tit">레이어 목록</h2>
 							<div class="cont">
 								<div class="search-section-map">
-									<div>
-										<div class="form-group label">
-											<div class="form-tit">
-												<label for="select_name">행정구역</label>
+									<div class="layer-sch">
+										<div class="form-group label public">
+											<div class="krds-form-check medium">
+												<input type="checkbox" id="chk_1-2a">
+												<label for="chk_1-2a">행정구역</label>
 											</div>
 										</div>
 										<div class="form-group label">
-											<div class="form-tit">
+											<div class="form-tit trans-button">
 												<label for="opacity-range">투명도</label>
 												<input type="range" min="0" max="100" value="60">
 											</div>
@@ -186,15 +188,15 @@
 									</div>
 									<!-- radio button -->
 									<div class="form-group label">
-										<div class="form-tit">
+										<div class="form-tit maplayer-button">
 											<label for="select_name">배경지도</label>
 										</div>
-										<div class="krds-check-area">
-											<div class="krds-form-check medium">
+										<div class="krds-check-area layer">
+											<div class="krds-form-check layer medium">
 												<input type="radio" name="rdo_2-1" id="rdo_2-2" checked>
 												<label for="rdo_2-2">위성맵</label>
 											</div>
-											<div class="krds-form-check medium">
+											<div class="krds-form-check layer medium">
 												<input type="radio" name="rdo_2-1" id="rdo_2-2">
 												<label for="rdo_2-2">일반맵</label>
 											</div>
@@ -329,7 +331,7 @@
 													<tr>
 														<th scope="row">번호</th>
 														<td>-</td>
-														<td>내용이 들어갑니다.</td>
+														<td>내용</td>
 														<td>작성자</td>
 														<td>작성일</td>
 													</tr>
@@ -486,11 +488,6 @@
 				</div>
 			</div>
 			<div class="legend-list">
-				<div class="map-btnbox-bottom">
-					<div>
-						<button><span>범례</span></button>
-					</div>
-				</div>
 				<div class="map-btnbox-legend">
 					<div class="fire-risk-legend">
 						<h4>산불위험지수</h4>
@@ -507,6 +504,11 @@
 							<span>20</span>
 							<span>10</span>
 						</div>
+					</div>
+				</div>
+				<div class="map-btnbox-bottom">
+					<div>
+						<button><span>범례</span></button>
 					</div>
 				</div>
 			</div>
