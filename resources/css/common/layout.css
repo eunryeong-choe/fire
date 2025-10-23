@@ -537,6 +537,16 @@
 	min-height: 380px;
 }
 
+@media (max-width: 767px) {
+  .view_info{
+		display: flex;
+		flex-direction: column;
+	}
+	.view_info dl {
+		width: calc(100%);
+	}
+}
+
 .prevNext_list {
 	border: 0.1rem solid #b1b8be;
 	border-radius: 1.2rem;

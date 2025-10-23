@@ -2494,3 +2494,20 @@ window.addEventListener("resize", () => {
   windowSize.setWinSize();
   krds_helpPanel.init();
 });
+
+
+const tabButtons = document.querySelectorAll('.tab-list > button');
+const tabPanels = document.querySelectorAll('.tab-conts');
+
+tabButtons.forEach((button, index) => {
+  button.addEventListener('click', () => {
+    // 모든 탭 버튼에서 active 제거
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    // 모든 탭 콘텐츠에서 active 제거
+    tabPanels.forEach(panel => panel.classList.remove('active'));
+    
+    // 클릭한 버튼과 해당 패널에 active 추가
+    button.classList.add('active');
+    tabPanels[index].classList.add('active');
+  });
+});
