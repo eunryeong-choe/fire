@@ -1268,9 +1268,10 @@
     overflow-x: auto;
     width: calc(100vw - var(--krds-contents-padding-x) * 2);
   }
+  /*
   .map-table-wrap .tbl {
     min-width: 73.2rem;
-  }
+  }*/
   .map-table-wrap.mob-scroll {
     width: 100%;
   }
