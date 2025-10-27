@@ -134,26 +134,48 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ==========================
-  // 7️⃣ main-row 클릭 시 detail-row 슬라이드
-  // ==========================
+
+  // document.querySelectorAll('.main-row').forEach(row => {
+  //   row.addEventListener('click', () => {
+  //     const nextRow = row.nextElementSibling;
+
+  //     if (!nextRow || !nextRow.classList.contains('detail-row')) return;
+
+  //     const isActive = nextRow.classList.contains('active');
+
+  //     // 모든 행 초기화
+  //     document.querySelectorAll('.detail-row').forEach(r => r.classList.remove('active'));
+  //     document.querySelectorAll('.main-row').forEach(r => r.classList.remove('active'));
+
+  //     // 클릭한 행만 열기
+  //     if (!isActive) {
+  //       nextRow.classList.add('active');
+  //       row.classList.add('active'); // 🔹 색상 유지
+  //     }
+  //   });
+  // });
+  // nextRow("detail-row") -> 하나인 경우 여러개에서도 동작을 해야돼.
   document.querySelectorAll('.main-row').forEach(row => {
-  row.addEventListener('click', () => {
-    const nextRow = row.nextElementSibling;
+    row.addEventListener('click', () => {
+      const list = [];
+      let nextRow = row.nextElementSibling;
 
-    // detail-row 맞는지 확인
-    if (!nextRow || !nextRow.classList.contains('detail-row')) return;
+      while (nextRow && nextRow.classList.contains('detail-row')) {
+        list.push(nextRow);
+        
+        nextRow = nextRow.nextElementSibling;
+      }
+      const isOpen = list.every((detailRow) => detailRow.classList.contains('active'));
+      document.querySelectorAll('.detail-row.active').forEach(r => r.classList.remove('active'));
+      document.querySelectorAll('.main-row.active').forEach(r => r.classList.remove('active'));
 
-    // 이미 열려있으면 닫기
-    if (nextRow.classList.contains('show')) {
-      nextRow.classList.remove('show');
-    } else {
-      // 다른 열려있는 detail-row 닫기
-      document.querySelectorAll('.detail-row.show').forEach(r => r.classList.remove('show'));
-      // 클릭한 row의 detail-row 열기
-      nextRow.classList.add('show');
-    }
+      if (!isOpen) {
+        list.forEach(detailRow => {
+          detailRow.classList.add('active');
+        });
+        row.classList.add('active');
+      }
+      
+    });
   });
-});
-
 });

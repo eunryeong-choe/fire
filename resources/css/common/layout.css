@@ -670,21 +670,57 @@
   display: none;
 }
 
-.detail-row.show {
+.detail-row.active {
   display: table-row;
 }
 
 .detail-content {
-  width: 0;                /* 기본은 접힌 상태 */
+  width: 0;                
   overflow: hidden;
   transition: width 0.3s ease;
-  display: inline-block;    /* width 애니메이션 적용 */
-  white-space: nowrap;      /* 테이블 한 줄 유지 */
+  display: inline-block;   
+  white-space: nowrap;     
 }
 
-.detail-row.show .detail-content {
-  width: 100%;             /* 펼쳐질 때 전체 너비 */
+
+.detail-row.active .detail-content {
+  width: 100%;            
 }
+
+.detail-row th,
+.detail-row td {
+	width: calc(100% / 12);
+}
+.main-row.active th,
+.main-row.active td {
+  background-color: var(--krds-color-light-primary-5) !important;
+}
+
+.main-row > th {
+  position: relative;
+  padding-right: 2.4rem; /* 아이콘 들어갈 공간 확보 */
+  cursor: pointer;
+}
+
+.main-row > th::after {
+  content: '';
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  width: 2rem;
+  height: 2rem;
+  transform: translateY(-50%);
+  background: no-repeat center / contain;
+  background-image: url(../../img/component/icon/ico_angle.svg);
+}
+
+
+.main-row.active > th::after {
+  transform: translateY(-50%) rotate(-180deg);
+}
+
+
+
 
 
 @keyframes slideDown {
