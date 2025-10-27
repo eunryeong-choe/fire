@@ -30,6 +30,10 @@
 	height: 100%;
 }
 
+.main-info.row > p {
+	text-align: center;
+}
+
 .main-info-group {
 	display: flex;
 	flex-direction: column;
@@ -431,10 +435,11 @@
 	display: flex;
 	align-items: center;
 	gap: .8rem;
-	width: calc(100% - 22rem);
+	width: 14rem;
+	justify-content: space-between;
 }
 .level-text > li > em {
-	width: calc(100% - 20rem);
+	width: 40%;
 }
 
 
@@ -572,6 +577,122 @@
 .list_btn {border: 1px solid #7D7D7D; min-width:50px; padding:0px 20px; height: 40px; line-height: 40px; position: relative; display: block;}
 
 
+.form-group.notice,
+.form-group.notice .form-tit{
+	width: 14rem;
+}
+
+.form-group.notice02,
+.form-group.notice02 .form-conts{
+	width: 36rem;
+}
+
+.form-group.sns,
+.form-group.sns .form-conts.calendar-conts {
+	width: 21rem;
+}
+
+.sns-map-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+	margin-top: 2.4rem;
+}
+
+
+.sns-time {
+  padding: .8rem 1.6rem;
+	text-align: center;
+	background: var(--krds-light-color-surface-secondary-subtler);
+	border-bottom: .1rem solid var(--krds-light-color-border-secondary-light);
+}
+
+.sns-img {
+	height: 18.4rem;
+}
+
+.day-range {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.4rem;
+}
+
+.day-range button {
+  border: none;
+  outline: none;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* 왼쪽에서 오른쪽으로 점점 진해지는 블루 */
+.day-range button:nth-child(1) {
+  background: #cfe4ff;
+}
+.day-range button:nth-child(2) {
+  background: #a8d0ff;
+}
+.day-range button:nth-child(3) {
+  background: #7bb6ff;
+}
+.day-range button:nth-child(4) {
+  background: #1a80ff; /* NOW */
+}
+.day-range button:nth-child(5) {
+  background: #005fd1;
+}
+.day-range button:nth-child(6) {
+  background: #004c99;
+}
+
+
+.day-range button + button {
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+.day-range button:hover {
+  filter: brightness(1.1);
+}
+
+
+.main-row {
+	cursor: pointer;
+}
+
+.day-range .now {
+  border: .1rem solid #003f80;
+  background: #007bff;
+}
+
+.detail-row {
+  display: none;
+}
+
+.detail-row.show {
+  display: table-row;
+}
+
+.detail-content {
+  width: 0;                /* 기본은 접힌 상태 */
+  overflow: hidden;
+  transition: width 0.3s ease;
+  display: inline-block;    /* width 애니메이션 적용 */
+  white-space: nowrap;      /* 테이블 한 줄 유지 */
+}
+
+.detail-row.show .detail-content {
+  width: 100%;             /* 펼쳐질 때 전체 너비 */
+}
+
+
+@keyframes slideDown {
+  from { max-height: 0; opacity: 0; }
+  to { max-height: 500px; opacity: 1; } /* 필요에 맞게 조절 */
+}
+
+
 @media screen and (max-width: 1150px) {
 	.intro-group {
 		display: flex;
@@ -595,7 +716,7 @@
 }
 
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
 	.intro-group {
 		display: grid;
 		grid-template-columns: 1fr;
@@ -608,4 +729,42 @@
 	.short-tit {
 		margin-bottom: 2.4rem;
 	}
+
+	.form-group.notice,
+	.form-group.notice .form-tit{
+		width: 100%;
+	}
+
+	.form-group.notice02,
+	.form-group.notice02 .form-conts{
+		width: 100%;
+	}
+
+	.form-group.sns,
+	.form-group.sns .form-conts.calendar-conts {
+		width: 100%;
+	}
+	.krds-btn.medium.notice{
+		width: 100%;
+	}
+
+	.sns-map-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
 }
+
+@media (max-width: 767px) {
+	.sns-map-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+	.day-range {
+		width: 100%;
+	}
+
+	.day-range button {
+		width: calc(100% / 6);
+	}
+}
+

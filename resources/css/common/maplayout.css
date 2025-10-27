@@ -229,20 +229,41 @@
 }
 
 .forestfires02::before {
-	background: url(../../img/map/spread.svg)center center no-repeat;
+	background: url(../../img/map/spread_W.svg)center center no-repeat;
 }
 
 .forestfires03::before {
-	background: url(../../img/map/analytics.svg)center center no-repeat;
+	background: url(../../img/map/analytics_W.svg)center center no-repeat;
 }
 
 .forestfires04::before {
-	background: url(../../img/map/search.svg)center center no-repeat;
+	background: url(../../img/map/search_W.svg)center center no-repeat;
 }
 
 .forestfires05::before {
+	background: url(../../img/map/map_warning_W.svg)center center no-repeat;
+}
+
+.forestfires01.active::before {
+	background: url(../../img/map/emergency.svg)center center no-repeat;
+}
+
+.forestfires02.active::before {
+	background: url(../../img/map/spread.svg)center center no-repeat;
+}
+
+.forestfires03.active::before {
+	background: url(../../img/map/analytics.svg)center center no-repeat;
+}
+
+.forestfires04.active::before {
+	background: url(../../img/map/search.svg)center center no-repeat;
+}
+
+.forestfires05.active::before {
 	background: url(../../img/map/map_warning.svg)center center no-repeat;
 }
+
 
 .topcontents {
 	position: absolute;
@@ -265,10 +286,35 @@
 	position: relative;
 }
 
+.hamburger {
+  width: 5.2rem;
+  background: #123452;
+}
+
+.hamburger > button {
+  width: 100%;
+  height: 100%;
+}
+
+.hamburger::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 3rem;
+  height: 3rem;
+  pointer-events: none;
+  border-radius: 50%;
+  background: #fff url(../../img/component/icon/ico_menu.svg) no-repeat center / contain;
+  background-size: 1.8rem;
+}
+
 .search-group::before,
 .time-group::before,
 .date-group > button::before,
-.result-group::before {
+.result-group::before,
+.weather-group::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -283,7 +329,8 @@
 .search-group > button,
 .date-group > button,
 .time-group > button,
-.result-group > button {
+.result-group > button,
+.weather-group > button {
   padding: 0rem 1.6rem 0rem 5.6rem;
   height: 100%;
 }
@@ -303,6 +350,23 @@
 .result-group::before {
 	background:#fff url(../../img/component/icon/ico_result.svg) no-repeat center / contain;
   background-size: 1.6rem;
+}
+
+.weather-group::before {
+	background:#fff url(../../img/component/icon/ico_more.svg) no-repeat center / contain;
+  background-size: 1.6rem;
+}
+
+#leftToggleBtn.active,
+.search-group.active {
+  background-color: #00808F;
+  color: #fff;
+}
+
+#rightToggleBtn.active,
+.result-group.active {
+  background-color: #23BCC7;
+  color: #fff;
 }
 
 
@@ -329,7 +393,8 @@
 }
 
 .search-group,
-.result-group {
+.result-group,
+.weather-group {
 	background: #A6A6A6;
 }
 
@@ -368,8 +433,8 @@
 
 .date-group .date-list,
 .time-group .time-list {
-  max-width: 0;              /* 처음엔 접힘 */
-  overflow: hidden;           /* 넘치는 내용 숨김 */
+  max-width: 0;      
+  overflow: hidden;          
   transition: max-width 0.6s ease; 
 }
 
@@ -385,7 +450,10 @@
 }
 
 
-/* 1024px 이하 */
+
+
+
+
 @media (max-width: 1024px) {
   #headermap {
     position: relative;
@@ -478,6 +546,28 @@
     z-index: 90;
   }
 
+  .weather-group.active {
+    background-color: #005bac; /* 클릭 시 색상 변경 */
+    color: #fff;
+  }
+
+  .center-list {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+  }
+
+  .center-list.slide-down {
+    max-height: 30rem; /* 안에 들어가는 콘텐츠 높이에 맞게 조절 */
+    opacity: 1;
+  }
+
+  .center-list.slide-up {
+    max-height: 0;
+    opacity: 0;
+  }
+
   /* topcontents 구조 세로로 정렬 */
   .topcontents {
     display: flex;
@@ -489,7 +579,10 @@
     justify-content: space-between;
   }
 
-  .date-group > div > button {
+  
+
+  .date-list > button,
+  .date-list > button.active {
     width: calc(100% / 5);
   }
   .time-group > div > button {
@@ -499,32 +592,45 @@
   .time-group::before {
     display: none;
   }
-}
 
-@media (max-width: 768px) {
+  /* 열렸을 때 */
+  .date-group.open .date-list {
+    max-width: 100%;
+    padding: 0rem;
+  }
+
+  .time-group.open .time-list {
+    max-width: 100%;
+    padding: 0rem;
+  }
+
+  .date-group > div > button {
+    width: calc(100% / 5);
+  }
+
+  .search-group,
+  .result-group,
+  .weather-group {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
   .topcontents-left,
   .topcontents-right,
   .topcontents-center {
-    flex-wrap: wrap; 
+    width: 100%;
   }
 
-  .date-group,
-  .time-group,
-  .result-group {
-    flex: 1 1 0;      
-    min-width: 0;     
-    box-sizing: border-box;
-    padding: 0.4rem 0.8rem; 
-  }
-
-  .topcontents-left > div,
-  .topcontents-right > div {
-    justify-content: center; 
+  .search-group > button,
+  .result-group > button,
+  .weather-group > button {
+    width: 100%;
   }
 
 
 }
+
 
 
 
@@ -1226,8 +1332,16 @@
 	width: 100%;
 }
 
-.form-conts-map > span	{
-	width: calc(100% - 32rem);
+.form-conts-map.left{
+	width: calc(100% - 18rem);
+}
+
+.form-tit-map.left {
+  justify-content: space-between;
+}
+
+.form-tit-map.left > span{
+  font-size: 1.2rem;
 }
 
 
@@ -1354,8 +1468,14 @@
 
   .index-map,
   .map-btnlist {
-    top: 1.6rem;
+    display: none;
   }
+
+  .legend-list {
+    position: fixed;
+    bottom: 1.6rem;
+  }
+
 }
 
 
@@ -1367,19 +1487,11 @@
 }
 
 @media (max-width: 768px) {
-  .index-map,
-  .map-btnlist {
-    display: none;
-  }
 
   .heademap-list > button {
     font-size: 1.2rem;
   }
 
-  .legend-list {
-    position: fixed;
-    bottom: 1.6rem;
-  }
 }
 
 /* 패널이 열렸을 때 왼쪽으로 이동 */
