@@ -113,19 +113,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   
-   const buttons = document.querySelectorAll(".heademap-list > button");
-    console.log('heademap buttons found:', buttons.length);
+  const buttons = document.querySelectorAll(".heademap-list > button");
 
-    buttons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        // 모든 버튼에서 active 제거
-        btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove("active"));
-        // 클릭한 버튼에 active 추가
-        btn.classList.add("active");
-        console.log('clicked button:', btn);
-      });
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      document.querySelector(".heademap-list > button.active")?.classList.remove("active");
+      button.classList.add("active");
     });
-
+  });
 
 
   // document.querySelectorAll('.main-row').forEach(row => {

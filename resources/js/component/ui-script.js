@@ -2405,29 +2405,50 @@ const nuriToggleEvent = {
 };
 /*** * krds_orgLayer * ***/
 const krds_orgLayer = {
-  btnOrgLayer: null,
-  orgLayer: null,
-  closeOrgLayer: null,
   init() {
-    this.btnOrgLayer = document.getElementById('btn-org-layer');
-    this.orgLayer = document.getElementById('orgLayer');
-    this.closeOrgLayer = document.getElementById('closeOrgLayer');
-    if (!this.btnOrgLayer || !this.orgLayer || !this.closeOrgLayer) return;
-    this.btnOrgLayer.addEventListener('click', this.openLayer.bind(this));
-    this.closeOrgLayer.addEventListener('click', this.closeLayer.bind(this));
-    window.addEventListener('mousedown', this.handleOutsideClick.bind(this));
+    // 버튼과 레이어 매핑
+    this.layers = {
+      btn1: { button: document.getElementById('btn-org-layer1'), layer: document.getElementById('orgLayer1') },
+      btn2: { button: document.getElementById('btn-org-layer2'), layer: document.getElementById('orgLayer2') },
+    };
+
+    // 버튼 이벤트 등록
+    Object.values(this.layers).forEach(({ button, layer }) => {
+      if (button && layer) {
+        button.addEventListener('click', () => this.openLayer(layer));
+      }
+    });
+
+    // 닫기 버튼 이벤트 등록
+    document.querySelectorAll('.org-layer .close-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const layerId = e.currentTarget.dataset.layer;
+        this.closeLayer(document.getElementById(layerId));
+      });
+    });
+
+    // 바깥 클릭 닫기
+    window.addEventListener('mousedown', (e) => this.handleOutsideClick(e));
   },
-  openLayer() {
-    this.orgLayer.style.display = 'block';
+
+  openLayer(layer) {
+    // 다른 레이어 닫기
+    Object.values(this.layers).forEach(({ layer: l }) => (l.style.display = 'none'));
+    // 선택한 레이어 열기
+    layer.style.display = 'block';
   },
-  closeLayer() {
-    this.orgLayer.style.display = 'none';
+
+  closeLayer(layer) {
+    layer.style.display = 'none';
   },
+
   handleOutsideClick(e) {
-    if (this.orgLayer.style.display === 'block' && !this.orgLayer.contains(e.target) && e.target !== this.btnOrgLayer) {
-      this.closeLayer();
-    }
-  }
+    Object.values(this.layers).forEach(({ layer, button }) => {
+      if (layer.style.display === 'block' && !layer.contains(e.target) && e.target !== button) {
+        this.closeLayer(layer);
+      }
+    });
+  },
 };
 
 async function includeHTML(selector, file) {
