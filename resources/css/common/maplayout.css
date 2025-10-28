@@ -171,6 +171,12 @@
 }
 
 
+.map-level {
+	display: flex;
+	align-items: center;
+	gap: .8rem;
+}
+
 
 /* header */
 
@@ -353,8 +359,8 @@
 }
 
 .weather-group::before {
-	background:#fff url(../../img/component/icon/ico_more.svg) no-repeat center / contain;
-  background-size: 1.6rem;
+	background:#fff url(../../img/component/icon/ico_multi.svg) no-repeat center / contain;
+  background-size: 2rem;
 }
 
 #leftToggleBtn.active,

@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  // ==========================
-  // 1️⃣ DOM 요소 가져오기
-  // ==========================
   const rightPanel = document.getElementById("rightWrap");
   const leftPanel = document.getElementById("leftWrap");
   const rightToggleBtn = document.getElementById("rightToggleBtn");
@@ -14,9 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const centerList = document.querySelector(".center-list");
   const weatherGroup = document.querySelector(".weather-group");
 
-  // ==========================
-  // 2️⃣ todayText / centerList 반응형 표시
-  // ==========================
   function updateTodayText() {
     if (!todayText) return;
 
@@ -36,9 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("resize", updateTodayText);
   updateTodayText();
 
-  // ==========================
-  // 3️⃣ 오른쪽 패널 토글
-  // ==========================
   function toggleRightPanel() {
     let isOpen;
     if (window.innerWidth <= 1024) {
@@ -53,10 +44,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (resultGroup) resultGroup.classList.toggle("active", isOpen);
     updateTodayText();
   }
+ 
 
-  // ==========================
-  // 4️⃣ 왼쪽 패널 토글
-  // ==========================
   function toggleLeftPanel() {
     let isOpen;
     if (window.innerWidth <= 1024) {
@@ -72,9 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
     updateTodayText();
   }
 
-  // ==========================
-  // 5️⃣ weather-group 클릭 시 center-list 슬라이드 + 색상 유지
-  // ==========================
+
   if (weatherGroup && centerList) {
     weatherGroup.addEventListener("click", function () {
       const isActive = weatherGroup.classList.toggle("active");
@@ -88,29 +75,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ==========================
-  // 6️⃣ 버튼 이벤트 등록
-  // ==========================
+
+
   if (rightToggleBtn) rightToggleBtn.addEventListener("click", toggleRightPanel);
   if (resultGroup) resultGroup.addEventListener("click", toggleRightPanel);
   if (leftToggleBtn) leftToggleBtn.addEventListener("click", toggleLeftPanel);
   if (searchGroup) searchGroup.addEventListener("click", toggleLeftPanel);
 
-  // 날짜/시간 그룹
+
   document.querySelectorAll(".date-group, .time-group").forEach(group => {
     const toggleBtn = group.querySelector("button");
     if (!toggleBtn) return;
     toggleBtn.addEventListener("click", () => group.classList.toggle("open"));
   });
 
-  // legend-list
+
   document.querySelectorAll(".legend-list").forEach(legend => {
     const toggleBtn = legend.querySelector(".map-btnbox-bottom button");
     if (!toggleBtn) return;
     toggleBtn.addEventListener("click", () => legend.classList.toggle("open"));
   });
 
-  // 날짜 버튼 그룹
+
   document.querySelectorAll('.date-list > button').forEach(btn => {
     btn.addEventListener('click', () => {
       btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active'));
@@ -118,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // 시간 버튼 그룹
+
   document.querySelectorAll('.time-list > button').forEach(btn => {
     btn.addEventListener('click', () => {
       btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active'));
@@ -126,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // 헤더 맵 버튼 그룹
+  
   document.querySelectorAll(".headermap-list > button").forEach(btn => {
     btn.addEventListener("click", () => {
       btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove("active"));
@@ -150,11 +136,11 @@ document.addEventListener("DOMContentLoaded", function () {
   //     // 클릭한 행만 열기
   //     if (!isActive) {
   //       nextRow.classList.add('active');
-  //       row.classList.add('active'); // 🔹 색상 유지
+  //       row.classList.add('active'); 
   //     }
   //   });
   // });
-  // nextRow("detail-row") -> 하나인 경우 여러개에서도 동작을 해야돼.
+
   document.querySelectorAll('.main-row').forEach(row => {
     row.addEventListener('click', () => {
       const list = [];

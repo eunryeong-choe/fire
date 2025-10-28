@@ -1341,78 +1341,6 @@ caption {
   padding-right: var(--krds-contents-padding-x);
 }
 
-/*20251014*/
-#wrap {
-  display: flex;
-  align-items: normal;
-  justify-content: flex-start;
-  flex-direction: column;
-  min-height: 100%;
-}
-
-#container{
-  position:relative;
-}
-#container .contents {
-  position: relative;
-  padding-top: 3.6rem;
-  padding-bottom: 8rem;
-}
-
-#container .main-contents {
-  display: flex;
-  flex-direction: column;
-  row-gap: 2rem;
-  margin-top: 4rem;
-  margin-bottom: 6rem;
-}
-
-.page-title-wrap {
-  margin-bottom: var(--krds-pc-gap-layout-h1-h2);
-}
-
-.sch-filter-box {
-  padding: var(--krds-padding-10);
-  border-radius: var(--krds-radius-xlarge1);
-  background: var(--search-box-filter-color-background);
-  margin-top: var(--krds-pc-gap-layout-h2-h3);
-}
-
-.sch-filter-box .filter-form {
-  display: flex;
-  align-items: normal;
-  gap: var(--krds-gap-7);
-  max-width: 100%;
-  flex-wrap: wrap;
-}
-
-.sch-filter-box .filter-form > div {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--krds-gap-4);
-  width: 100%;
-  max-width: 26.5rem;
-}
-
-.sch-filter-box .filter-form > div:nth-child(4) {
-  max-width: fit-content;
-}
-
-.sch-filter-box .filter-form > div:nth-child(4) .krds-input {
-  width: 37rem;
-}
-
-.sch-filter-box .filter-form .label {
-  font-weight: var(--krds-font-weight-bold);
-  white-space: nowrap;
-  min-width: 6.3rem;
-}
-
-.sch-filter-box .filter-form .krds-form-select {
-  width: 100%;
-  /* max-width: 18rem; */
-}
-
 
 @media (max-width: 767px) {
   body {
@@ -2716,7 +2644,7 @@ caption {
 @media (max-width: 767px) {
   .krds-table-wrap .tbl.data tbody th,
   .krds-table-wrap .tbl.data tbody td {
-    font-size: var(--krds-table--data-tbody-mobile-font-size);
+    font-size: var(--krds-mobile-font-size-heading-xxsmall);
   }
 }
 .krds-table-wrap.scroll {
@@ -9289,7 +9217,7 @@ caption {
   width: auto !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 960px) {
   .fieldset,
   .form-col-group {
     flex-direction: column;
@@ -9357,6 +9285,29 @@ caption {
   gap: .8rem;
   flex-basis: 100%
 }
+
+
+
+
+@media (max-width: 768px) {
+  
+  .tab-list > button {
+    flex: 1 1 auto !important;
+    min-width: max-content;
+  }
+
+  .tab-list > button {
+    flex: 1 1 calc(50% - 0.8rem); /* gap 고려해서 2개씩 */
+    width: calc(50% - 0.8rem);
+    text-align: center;
+  }
+
+  .form-group.label {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+  }
+}
+
 
 
 .form-group {
@@ -10074,6 +10025,7 @@ textarea.krds-input {
   background-size: var(--krds-form-select--icon-size-large) !important;
   border-radius: var(--krds-form-select--radius-large);
   font-size: var(--krds-form-select--pc-font-size-large);
+
 }
 @media (max-width: 767px) {
   .krds-form-select {

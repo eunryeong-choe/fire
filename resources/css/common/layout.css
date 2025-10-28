@@ -9,6 +9,7 @@
 	box-sizing: border-box;
 }
 
+/*메인/인트로 정보 그룹*/
 .intro-group {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
@@ -53,6 +54,7 @@
 	border-radius: 1.2rem;
 	padding: 2rem;
 }
+
 .short-group {
 	display: flex;
 	flex-direction: column;
@@ -156,7 +158,7 @@
 }
 
 
-/* 위험 등급 색상 변수 */
+/* 위험 등급 */
 :root {
   --risk-color-attention: #b0d6ff;  /* 관심 */
   --risk-color-caution: #fff9da;    /* 주의 */
@@ -307,7 +309,7 @@
 	width: 3.5rem;
 }
 
-/*시도*/
+/* 날씨 위치*/
 .gangreung {
 	top: 6.5rem;
 	left: 21rem;
@@ -416,7 +418,7 @@
 	height: 35.5rem;
 }
 
-/* 최근 공지사항 */
+/* 메인 최근 공지사항 */
 .mnotice > li {
 	display: flex;
 	justify-content: space-between;
@@ -542,15 +544,6 @@
 	min-height: 380px;
 }
 
-@media (max-width: 767px) {
-  .view_info{
-		display: flex;
-		flex-direction: column;
-	}
-	.view_info dl {
-		width: calc(100%);
-	}
-}
 
 .prevNext_list {
 	border: 0.1rem solid #b1b8be;
@@ -607,26 +600,30 @@
 }
 
 .sns-img {
-	height: 18.4rem;
+	width: calc(100%);
+	padding: 1.6rem
 }
 
+
+/* 왼쪽에서 오른쪽으로 점점 진해지는 블루 */
 .day-range {
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 0.4rem;
+	width: 100%;
 }
 
 .day-range button {
   border: none;
   outline: none;
   color: #fff;
-  padding: 0.6rem 1.2rem;
+  height: 4rem;
   cursor: pointer;
   transition: background 0.2s;
+	width: calc(100% / 6);
 }
 
-/* 왼쪽에서 오른쪽으로 점점 진해지는 블루 */
 .day-range button:nth-child(1) {
   background: #cfe4ff;
 }
@@ -646,25 +643,16 @@
   background: #004c99;
 }
 
-
-.day-range button + button {
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-
 .day-range button:hover {
   filter: brightness(1.1);
 }
 
-
-.main-row {
-	cursor: pointer;
-}
-
-.day-range .now {
+.day-range .active {
   border: .1rem solid #003f80;
   background: #007bff;
 }
+
+
 
 .detail-row {
   display: none;
@@ -691,9 +679,84 @@
 .detail-row td {
 	width: calc(100% / 12);
 }
+
+#wrap {
+  display: flex;
+  align-items: normal;
+  justify-content: flex-start;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+#container{
+  position:relative;
+}
+#container .contents {
+  position: relative;
+  padding-top: 3.6rem;
+  padding-bottom: 8rem;
+}
+
+#container .main-contents {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 6rem;
+}
+
+.page-title-wrap {
+  margin-bottom: var(--krds-pc-gap-layout-h1-h2);
+}
+
+.sch-filter-box {
+  padding: var(--krds-padding-10);
+  border-radius: var(--krds-radius-xlarge1);
+  background: var(--search-box-filter-color-background);
+  margin-top: var(--krds-pc-gap-layout-h2-h3);
+}
+
+.sch-filter-box .filter-form {
+  display: flex;
+  align-items: normal;
+  gap: var(--krds-gap-7);
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+.sch-filter-box .filter-form > div {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--krds-gap-4);
+  width: 100%;
+  max-width: 26.5rem;
+}
+
+.sch-filter-box .filter-form > div:nth-child(4) {
+  max-width: fit-content;
+}
+
+.sch-filter-box .filter-form > div:nth-child(4) .krds-input {
+  width: 37rem;
+}
+
+.sch-filter-box .filter-form .label {
+  font-weight: var(--krds-font-weight-bold);
+  white-space: nowrap;
+  min-width: 6.3rem;
+}
+
+.sch-filter-box .filter-form .krds-form-select {
+  width: 100%;
+  /* max-width: 18rem; */
+}
+
+
+
 .main-row.active th,
 .main-row.active td {
   background-color: var(--krds-color-light-primary-5) !important;
+	color: var(--krds-light-color-text-primary) !important;
 }
 
 .main-row > th {
@@ -705,7 +768,7 @@
 .main-row > th::after {
   content: '';
   position: absolute;
-  right: 0.8rem;
+  right: 0;
   top: 50%;
   width: 2rem;
   height: 2rem;
@@ -719,8 +782,11 @@
   transform: translateY(-50%) rotate(-180deg);
 }
 
-
-
+.search-wrap {
+	background: var(--krds-light-color-border-primary-light);
+	border-radius: .8rem;
+	padding: 1.6rem;
+}
 
 
 @keyframes slideDown {
@@ -772,7 +838,8 @@
 	}
 
 	.form-group.notice02,
-	.form-group.notice02 .form-conts{
+	.form-group.notice02 .form-conts,
+	.krds-btn.medium.notice02 {
 		width: 100%;
 	}
 
@@ -790,17 +857,22 @@
 
 }
 
+
 @media (max-width: 767px) {
+	
+  .view_info{
+		display: flex;
+		flex-direction: column;
+	}
+	.view_info dl {
+		width: calc(100%);
+	}
+
 	.sns-map-list {
     grid-template-columns: repeat(2, 1fr);
   }
 
-	.day-range {
-		width: 100%;
-	}
-
-	.day-range button {
-		width: calc(100% / 6);
+	.search-section {
+		padding: 2.4rem;
 	}
 }
-
