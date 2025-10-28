@@ -113,12 +113,19 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   
-  document.querySelectorAll(".headermap-list > button").forEach(btn => {
-    btn.addEventListener("click", () => {
-      btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
+   const buttons = document.querySelectorAll(".heademap-list > button");
+    console.log('heademap buttons found:', buttons.length);
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        // 모든 버튼에서 active 제거
+        btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove("active"));
+        // 클릭한 버튼에 active 추가
+        btn.classList.add("active");
+        console.log('clicked button:', btn);
+      });
     });
-  });
+
 
 
   // document.querySelectorAll('.main-row').forEach(row => {

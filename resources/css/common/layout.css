@@ -605,7 +605,6 @@
 }
 
 
-/* 왼쪽에서 오른쪽으로 점점 진해지는 블루 */
 .day-range {
   display: flex;
   align-items: center;
@@ -787,6 +786,120 @@
 	border-radius: .8rem;
 	padding: 1.6rem;
 }
+
+/* search-list 레이아웃 */
+.search-section {
+  background-color: var(--krds-light-color-surface-secondary-subtler);
+  border-radius: var(--krds-radius-large2);
+  padding: var(--krds-pc-padding-card-large);
+}
+
+.search-section {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.search-list-top {
+  padding-bottom: var(--krds-number-14);
+}
+
+
+.search-list-bottom,
+.itemlist
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.search-list-bottom.line {
+  padding-top: 2.4rem;
+  border-top: 0.1rem solid var(--krds-light-color-border-gray-light);
+  justify-content: flex-end;
+}
+
+.itemlist .font {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+.itemlist .font-lg {
+  font-size: 2.1rem;
+  font-weight: 700;
+}
+.itemlist .pr-color{
+  color: var(--krds-color-light-primary-60);
+}
+
+.button-list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 2.4rem;
+}
+
+.tab-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: .8rem;
+  flex-basis: 100%
+}
+
+/* form 레이아웃 */
+.fieldset {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--krds-gap-4);
+}
+
+.form-col-group {
+  display: flex;
+  gap: var(--krds-gap-5);
+}
+.form-col-group .form-group {
+  width: fit-content;
+}
+
+.button-border0 {
+  border: none !important;
+  height: auto !important;
+  width: auto !important;
+}
+
+@media (max-width: 960px) {
+  .fieldset,
+  .form-col-group {
+    flex-direction: column;
+  }
+  .form-col-group .form-group .form-group {
+    width: 100%;
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+  
+  .tab-list > button {
+    flex: 1 1 auto !important;
+    min-width: max-content;
+  }
+
+  .tab-list > button {
+    flex: 1 1 calc(50% - 0.8rem); /* gap 고려해서 2개씩 */
+    width: calc(50% - 0.8rem);
+    text-align: center;
+  }
+
+  .form-group.label {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+  }
+}
+
 
 
 @keyframes slideDown {
