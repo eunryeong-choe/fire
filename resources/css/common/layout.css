@@ -9,6 +9,20 @@
 	box-sizing: border-box;
 }
 
+.content-inner	{
+	display: flex;
+	align-items: normal;
+	justify-content: flex-start;
+	flex-direction: row;
+	margin: 0 auto;
+	width: 124.8rem;
+	gap: 8rem;
+}
+
+.left-menu {
+	width: 24.6rem;
+}
+
 /*메인/인트로 정보 그룹*/
 .intro-group {
 	display: grid;
@@ -919,6 +933,18 @@
 }
 
 @media (max-width: 1024px) {
+	
+	.content-inner {
+		align-items: normal;
+		margin: auto;
+		width: auto;
+		gap: 0;
+	}
+
+	.left-menu {
+		display: none;
+	}
+
   .org-layer {
     width: 70rem;
     height: auto;
