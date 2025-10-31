@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="resources/css/component/common.css" />
+	<link rel="stylesheet" tyep="text/css" href="resources/css/plugin/swiper-bundle.min.css" />
+	<link rel="stylesheet" tyep="text/css" href="resources/css/common/layout.css" />
+
+	<script src="resources/js/plugin/swiper-bundle.min.js" defer></script>
+	<script src="resources/js/component/ui-script.js" defer></script>
+	<script src="resources/js/component/ui-map-script.js" defer></script>
+
+	<title>공통상세코드관리</title>
+
+</head>
+<body>
+<div id="wrap">	
+	<!--헤더 영역-->
+	<div id="header"></div>
+	<!--헤더 영역 끝-->
+	<div class="content-inner">
+		<!-- side navigation -->
+		<nav class="krds-side-navigation left-menu">
+			<h2 class="lnb-tit">관리서비스</h2>
+			<!-- lnb-list -->
+			<ul class="lnb-list" role="menubar">
+				<li class="lnb-item" role="none">
+					<button type="button" class="lnb-btn lnb-toggle" role="menuitem" aria-controls="lnbmenu-4" aria-expanded="false">사용자관리</button>
+					<!-- lnb-submenu -->
+					<div class="lnb-submenu">
+						<ul id="lnbmenu-4" role="menu">
+							<li class="lnb-subitem" role="none"><a href="#" class="lnb-btn lnb-link" role="menuitem">3Depth-link</a></li>
+							<li class="lnb-subitem" role="none"><a href="#" class="lnb-btn lnb-link" role="menuitem">3Depth-link</a></li>
+						</ul>
+					</div>
+					<!-- //lnb-submenu -->
+				</li>
+				<li class="lnb-item" role="none">
+					<button type="button" class="lnb-btn lnb-toggle" role="menuitem" aria-controls="lnbmenu-4" aria-expanded="false">로그관리</button>
+					<!-- lnb-submenu -->
+					<div class="lnb-submenu">
+						<ul id="lnbmenu-4" role="menu">
+							<li class="lnb-subitem" role="none"><a href="#" class="lnb-btn lnb-link" role="menuitem">3Depth-link</a></li>
+							<li class="lnb-subitem" role="none"><a href="#" class="lnb-btn lnb-link" role="menuitem">3Depth-link</a></li>
+						</ul>
+					</div>
+					<!-- //lnb-submenu -->
+				</li>
+				<li class="lnb-item" role="none">
+					<button type="button" class="lnb-btn lnb-toggle" role="menuitem" aria-controls="lnbmenu-4" aria-expanded="false">권환관리</button>
+					<!-- lnb-submenu -->
+					<div class="lnb-submenu">
+						<ul id="lnbmenu-4" role="menu">
+							<li class="lnb-subitem" role="none">
+								<button type="button" class="lnb-btn lnb-toggle-popup" role="menuitem" aria-controls="lnbmenu-5" aria-expanded="false" aria-haspopup="true">3Depth-menu</button>
+								<!-- lnb-submenu-lv2 -->
+								<div class="lnb-submenu-lv2" id="lnbmenu-5" role="menu">
+									<button type="button" class="lnb-btn-tit">3Depth-title</button>
+									<ul>
+										<li role="none"><a href="#" class="lnb-btn" role="menuitem">4Depth</a></li>
+										<li role="none"><a href="#" class="lnb-btn" role="menuitem">4Depth</a></li>
+										<li role="none"><a href="#" class="lnb-btn" role="menuitem">4Depth</a></li>
+									</ul>
+								</div>
+								<!-- //lnb-submenu-lv2 -->
+							</li>
+							<li class="lnb-subitem" role="none"><a href="#" class="lnb-btn lnb-link" role="menuitem">3Depth-link</a></li>
+							<li class="lnb-subitem" role="none"><a href="#" class="lnb-btn lnb-link" role="menuitem">3Depth-link</a></li>
+						</ul>
+					</div>
+					<!-- //lnb-submenu -->
+				</li>
+				<li class="lnb-item" role="none">
+					<button type="button" class="lnb-btn lnb-toggle" role="menuitem" aria-controls="lnbmenu-6" aria-expanded="false">암호화/복호화</button>
+				</li>
+				<li class="lnb-item" role="none">
+					<button type="button" class="lnb-btn lnb-toggle" role="menuitem" aria-controls="lnbmenu-4" aria-expanded="false">게시물관리</button>
+					<!-- lnb-submenu -->
+					<div class="lnb-submenu">
+						<ul id="lnbmenu-4" role="menu">
+							<li class="lnb-subitem" role="none"><a href="#" class="lnb-btn lnb-link" role="menuitem">3Depth-link</a></li>
+							<li class="lnb-subitem" role="none"><a href="#" class="lnb-btn lnb-link" role="menuitem">3Depth-link</a></li>
+						</ul>
+					</div>
+					<!-- //lnb-submenu -->
+				</li>
+				<li class="lnb-item active" role="none">
+					<button type="button" class="lnb-btn lnb-toggle active" role="menuitem" aria-controls="lnbmenu-1" aria-expanded="true">공통코드관리</button>
+					<!-- lnb-submenu -->
+					<div class="lnb-submenu">
+						<ul id="lnbmenu-1" role="menu">
+							<li class="lnb-subitem" role="none"><a href="#" class="lnb-btn lnb-link" role="menuitem">시스템로그관리</a></li>
+							<li class="lnb-subitem active" role="none"><a href="#" class="lnb-btn lnb-link" role="menuitem" aria-current="page">공통분류코드관리</a></li>
+							<li class="lnb-subitem active" role="none"><a href="#" class="lnb-btn lnb-link" role="menuitem" aria-current="page">공통코드관리</a></li>
+							<li class="lnb-subitem active" role="none"><a href="#" class="lnb-btn lnb-link" role="menuitem" aria-current="page">공통상세코드관리</a></li>
+						</ul>
+					</div>
+					<!-- //lnb-submenu -->
+				</li>
+				<li class="lnb-item" role="none">
+					<button type="button" class="lnb-btn lnb-toggle" role="menuitem" aria-controls="lnbmenu-4" aria-expanded="false">메뉴관리</button>
+					<!-- lnb-submenu -->
+					<div class="lnb-submenu">
+						<ul id="lnbmenu-4" role="menu">
+							<li class="lnb-subitem" role="none"><a href="#" class="lnb-btn lnb-link" role="menuitem">3Depth-link</a></li>
+							<li class="lnb-subitem" role="none"><a href="#" class="lnb-btn lnb-link" role="menuitem">3Depth-link</a></li>
+						</ul>
+					</div>
+					<!-- //lnb-submenu -->
+				</li>
+				<li class="lnb-item" role="none">
+					<button type="button" class="lnb-btn lnb-toggle" role="menuitem" aria-controls="lnbmenu-6" aria-expanded="false">도움말관리</button>
+				</li>					
+				<li class="lnb-item" role="none">
+					<button type="button" class="lnb-btn lnb-toggle" role="menuitem" aria-controls="lnbmenu-6" aria-expanded="false">온라인메뉴얼관리</button>
+				</li>
+			</ul>
+			<!-- //lnb-list -->
+		</nav>
+		<!-- //side navigation -->
+
+		<!-- 컨테이너 영역-->
+		<div id="container" class="container-inner">
+			<!-- 컨텐츠 영역-->
+			<div class="contents inner">
+				<!-- breadcrumb -->
+				<nav class="krds-breadcrumb-wrap" aria-label="현재 경로" id="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="home"><a href="#" class="txt">홈</a></li>
+						<li><a href="#" class="txt">공통코드관리</a></li>
+						<li><a href="#" class="txt">공통상세코드관리</a></li>
+					</ol>
+				</nav>
+				<!-- breadcrumb -->
+				<!-- page-title -->
+				<div class="page-title-wrap">
+					<h1>공통상세코드관리</h1>
+				</div>
+				<!-- table -->
+				<div class="krds-table-wrap">
+					<table class="tbl col data form-table">
+						<caption>웹로그목록</caption>
+						<colgroup>
+							<col style="width: 20%;">
+							<col />
+							<col />
+						</colgroup>
+						<tbody>
+							<tr>
+								<th scope="row">코드ID<span class="required">*</span></th>
+								<td colspan="2">
+									<div class="form-layout">
+										<div class="form-group">
+											<div class="form-tit">
+												<div class="form-conts">
+													<select id="select_size_medium" class="krds-form-select medium" title="선택">
+														<option value="" selected>선택하세요</option>
+														<option value="">1</option>
+														<option value="">2</option>
+														<option value="">3</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<!-- //폼그룹 -->
+										<div class="form-group">
+											<div class="form-tit">
+												<div class="form-conts">
+													<select id="select_size_medium" class="krds-form-select medium" title="선택">
+														<option value="" selected>선택하세요</option>
+														<option value="">1</option>
+														<option value="">2</option>
+														<option value="">3</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<!-- //폼그룹 -->
+									 </div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">상세코드<span class="required">*</span></th>
+								<td colspan="2">
+									<div class="form-group">
+										<div class="form-conts">
+											<input type="text" id="consult_name32" class="krds-input medium" placeholder="내용을 입력하세요" >
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">상세코드명<span class="required">*</span></th>
+								<td colspan="2">
+									<div class="form-group">
+										<div class="form-conts">
+											<input type="text" id="consult_name32" class="krds-input medium" placeholder="내용을 입력하세요">
+										</div>
+									</div>
+									<!-- text input -->
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">상세코드설명<span class="required">*</span></th>
+								<td colspan="2">
+									<div class="form-group">
+										<div class="form-conts">
+											<div class="textarea-wrap">
+												<textarea class="krds-input" placeholder="입력하세요" id="textarea"></textarea>
+												<p class="textarea-count">
+													<span class="count-now">0</span><span class="count-total">/100</span>
+												</p>
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">사용여부<span class="required">*</span></th>
+								<td colspan="2">
+									<div>
+										<div class="form-group">
+											<div class="form-tit">
+												<div class="form-conts">
+													<select id="select_size_medium" class="krds-form-select medium" title="선택">
+														<option value="" selected>예</option>
+														<option value="">예</option>
+														<option value="">아니오</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- //table -->
+				<!-- page-title -->
+					<div class="search-list-bottom gap">
+						<!-- //폼그룹 -->
+						<button type="button" class="krds-btn tertiary medium">
+							수정
+						</button>
+						<button type="button" class="krds-btn tertiary medium">
+							삭제
+						</button>
+						<button type="button" class="krds-btn tertiary medium">
+							목록
+						</button>
+					</div>
+			</div>
+			<!-- 컨텐츠 영역-->
+		</div>
+		<!-- 컨테이너 영역 끝-->
+	</div>
+	<!--푸터 영역-->
+	<div id="footer"></div>
+	<!--푸터 영역 끝-->
+</div>
+</body>
+</html>
