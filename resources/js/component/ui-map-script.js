@@ -27,16 +27,28 @@ document.addEventListener("DOMContentLoaded", function () {
       if (centerList) centerList.style.display = "none";
     }
   }
+
   window.addEventListener("resize", updateTodayText);
   updateTodayText();
 
+
   function toggleRightPanel() {
     let isOpen;
+
     if (window.innerWidth <= 1024) {
+
+      if (leftPanel.classList.contains("open") || searchGroup?.classList.contains("active")) return;
+
+
+      if (!rightPanel.classList.contains("open") && leftPanel.classList.contains("open")) {
+        leftPanel.classList.remove("open", "fullscreen");
+        if (searchGroup) searchGroup.classList.remove("active");
+      }
+
       isOpen = rightPanel.classList.toggle("open");
       rightPanel.classList.toggle("fullscreen", isOpen);
     } else {
-      rightPanel.classList.remove("fullscreen");
+
       isOpen = rightPanel.classList.toggle("open");
       moveTargets.forEach(el => el.classList.toggle("shifted", isOpen));
     }
@@ -44,15 +56,25 @@ document.addEventListener("DOMContentLoaded", function () {
     if (resultGroup) resultGroup.classList.toggle("active", isOpen);
     updateTodayText();
   }
- 
+
 
   function toggleLeftPanel() {
     let isOpen;
+
     if (window.innerWidth <= 1024) {
+
+      if (rightPanel.classList.contains("open") || resultGroup?.classList.contains("active")) return;
+
+
+      if (!leftPanel.classList.contains("open") && rightPanel.classList.contains("open")) {
+        rightPanel.classList.remove("open", "fullscreen");
+        if (resultGroup) resultGroup.classList.remove("active");
+      }
+
       isOpen = leftPanel.classList.toggle("open");
       leftPanel.classList.toggle("fullscreen", isOpen);
     } else {
-      leftPanel.classList.remove("fullscreen");
+
       isOpen = leftPanel.classList.toggle("open");
       moveTargets.forEach(el => el.classList.toggle("shifted-left", isOpen));
     }
@@ -76,12 +98,25 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-
   if (rightToggleBtn) rightToggleBtn.addEventListener("click", toggleRightPanel);
   if (resultGroup) resultGroup.addEventListener("click", toggleRightPanel);
   if (leftToggleBtn) leftToggleBtn.addEventListener("click", toggleLeftPanel);
   if (searchGroup) searchGroup.addEventListener("click", toggleLeftPanel);
 
+
+  window.addEventListener("resize", function () {
+    if (window.innerWidth <= 1024) {
+      leftPanel.classList.remove("open", "fullscreen");
+      rightPanel.classList.remove("open", "fullscreen");
+      searchGroup?.classList.remove("active");
+      resultGroup?.classList.remove("active");
+      moveTargets.forEach(el => el.classList.remove("shifted", "shifted-left"));
+    }
+    updateTodayText();
+  });
+
+
+  
 
   document.querySelectorAll(".date-group, .time-group").forEach(group => {
     const toggleBtn = group.querySelector("button");
@@ -166,4 +201,29 @@ document.addEventListener("DOMContentLoaded", function () {
       
     });
   });
+
+  const controls = document.querySelectorAll('.layer-control');
+let order = []; // 클릭 순서 저장
+
+controls.forEach(control => {
+  control.addEventListener('click', e => {
+    if (e.target.tagName === 'INPUT') return;
+
+    const index = order.indexOf(control);
+    if (index === -1) {
+      // 새로 선택
+      order.push(control);
+      control.setAttribute('data-order', order.length);
+      control.classList.add('active');
+    } else {
+      // 이미 선택된 항목 클릭 시 해제
+      order.splice(index, 1);
+      control.removeAttribute('data-order');
+      control.classList.remove('active');
+
+      // 나머지 순서 재정렬
+      order.forEach((c, i) => c.setAttribute('data-order', i + 1));
+    }
+  });
+});
 });

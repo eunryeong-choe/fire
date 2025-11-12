@@ -1,0 +1,742 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>국가산불위험예보시스템 > 상세산불위험정보</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<!-- stylesheets -->
+	
+	
+	
+	<link rel="stylesheet" type="text/css" href="resources/css/component/common.css">
+    
+        <link rel="stylesheet" type="text/css" href="/css/ol/ol-10.5.0.css">
+    
+        <link rel="stylesheet" type="text/css" href="/css/jquery-ui/jquery-ui-1.14.1.min.css">
+    
+    
+    <!-- end stylesheets -->
+    <!-- scripts -->
+	
+	
+	
+        <script src="/js/jquery/jquery-3.7.1.min.js"></script>
+    
+        <script src="/js/jquery/jquery.form.min.js"></script>
+    
+        <script src="/js/jquery/jquery-ui-1.14.1.min.js"></script>
+    
+        <script src="/js/ol/ol-10.5.0.js"></script>
+    
+        <script src="/js/proj4js/2.6.2/proj4.js"></script>
+    
+        <script src="/js/common.js"></script>
+    
+        <script src="/js/sys/gis/config.js"></script>
+    
+        <script src="/js/util.js"></script>
+    
+    
+        <script src="/js/sys/gis/dtlFfdInfoMap.js"></script>
+    
+    <!-- end scripts -->
+</head>
+<body>
+	<!-- javascript warning tag  -->
+	<noscript class="noScriptTitle">자바스크립트를 지원하지 않는 브라우저에서는 일부 기능을 사용하실 수 없습니다.</noscript>
+	
+	<p class="SkipNav"><a href="#Cont">콘텐츠바로가기</a><a href="#GNB">메뉴바로가기</a></p>
+<!-- 	<div class="loading-div" style='display:none;'> -->
+
+<!-- 	</div> -->
+	<input id="vworldKey" type="hidden" value="A70FDD5E-B920-3240-913B-5C4EDFD4ABE4">
+	<!-- wrap -->
+	<div id="wrap">
+		<div class="map-container">
+			
+
+
+
+
+
+
+
+
+
+
+<style>
+	.top-panel{width: 100%;height: 40px; background-color: #364b77;position: absolute;top:0px;align-content: center;display: flex;}
+	.top-panel-search-btn,.top-panel-timestamp-btn,.top-panel-info-btn{color: #fff;background-color: #4a7e8d;height: 100%;width: 146px;align-content: center;text-align: center;cursor: pointer;display: flex;flex-wrap: wrap;}
+	.top-panel-search-btn{background-color: #4a7e8d;}
+	.top-panel-timestamp-btn{background-color: #233150;}
+	.top-panel-info-btn{background-color: #72bac5;}
+	.top-panel-imgback{width: 30px;height: 30px;background-color: #fff;border-radius: 15px;align-content: center;margin-left: 10px;}
+	.top-panel-imgback > img {width: 18px;padding-bottom: 2px;}
+	.top-panel-search-title{align-content: center;padding-left: 5px;color: #fff;}
+	.top-panel-timestamp-contents{width: calc(100% - 712px);height: 100%;display: flex;flex-wrap: wrap;align-content: center;}
+	.top-panel-timestamp-contents button{color: #fff;height: 100%;}
+	.top-panel-timestamp-contents button.prev{width: 40px;border-right: 1px solid #fff;}
+	.top-panel-timestamp-contents button.next{width: 40px;border-left: 1px solid #fff;}
+	.top-panel-timestamp-contents > div > button,.top-panel-timestamp-detail > div > button{background-color: #fff;width:80px;height: 25px;border-radius: 5px;color:#000;margin: 0 3px;}
+	.top-panel-timestamp-contents > div > button.on,.top-panel-timestamp-detail > div > button.on{background-color:#4c8669;border:1px solid #549963;color:#fff;}
+	.top-panel-analdate-info{color:#fff;text-align: center;align-content: center;width:300px;}
+	.top-panel-forecast-contents{align-content: center;padding: 0 20px;}
+	.top-panel-timestamp-detail{position: absolute;top: 41px;z-index: 1;height: 40px;background-color: #fff;border: 1px solid #364b77;border-radius: 10px;align-content: center;display: none;}
+	.top-panel-timestamp-detail > div > button{border: 1px solid #4c8669;display: none;}
+	.top-panel-timestamp-detail > div > button.active{display: inline;}
+	.forecast-contents{width: calc(100% - 858px);}
+	
+	.top-panel-timestamp-detail.on{display: block;}
+	.gohome,.gositemap{width: 60px;}
+	.gohome > button{width: 100%;height: 100%;background: url(/images/old/layout/icon_home.png) no-repeat;background-position: center;}
+	.gositemap > button{width: 100%;height: 100%;background: url(/images/old/common/btn_layerf.png) no-repeat;background-position: center;}
+	
+</style>
+<div class="top-panel">
+	<div class="gohome"><button type="button" onclick="fn_gohome()"></button></div>
+	<div class="top-panel-search-btn"><div class="top-panel-imgback"><img alt="" src="/images/old/icon/searchBtn.gif"></div><div class="top-panel-search-title">검색/레이어</div></div>
+	
+	<div class="top-panel-timestamp-btn"><div class="top-panel-imgback"><img alt="" src="/images/old/board/call_blit.png"></div><div class="top-panel-search-title">날짜선택</div></div>
+	
+	<div class="top-panel-timestamp-contents forecast-contents">
+		
+		<div class="top-panel-forecast-contents">
+			
+			<button type="button" id="fctToDtBtn" class="forecastBtn">12월30일</button>
+			<button type="button" id="fct1dayDtBtn" class="forecastBtn">12월31일</button>
+			<button type="button" id="fct2dayDtBtn" class="forecastBtn">01월01일</button>
+			<button type="button" id="fct3dayDtBtn" class="forecastBtn">01월02일</button>
+			<button type="button" id="fct4dayDtBtn" class="forecastBtn">01월03일</button>
+			
+		</div>
+		
+	</div>
+	
+	<div class="top-panel-analdate-info">현재실황: 2025년 01월 09일 15시 30분 발표</div>
+	<div class="top-panel-info-btn"><div class="top-panel-imgback"><img alt="" src="/images/old/icon/searchBtn.gif"></div><div class="top-panel-search-title">결과패널</div></div>
+	<div class="gositemap"><button type="button" onclick="fn_goSiteMap()"></button> </div>
+</div>
+
+<div class="top-panel-timestamp-detail">
+	<div class="top-panel-forecast-contents">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day1230" onclick="fn_fctSetDefinition(6)">
+			18시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day1230" onclick="fn_fctSetDefinition(9)">
+			21시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day1230" onclick="fn_fctSetDefinition(12)">
+			24시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day1231" onclick="fn_fctSetDefinition(15)">
+			3시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day1231" onclick="fn_fctSetDefinition(18)">
+			6시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day1231" onclick="fn_fctSetDefinition(21)">
+			9시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day1231" onclick="fn_fctSetDefinition(24)">
+			12시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day1231" onclick="fn_fctSetDefinition(27)">
+			15시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day1231" onclick="fn_fctSetDefinition(30)">
+			18시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day1231" onclick="fn_fctSetDefinition(33)">
+			21시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day1231" onclick="fn_fctSetDefinition(36)">
+			24시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0101" onclick="fn_fctSetDefinition(39)">
+			3시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0101" onclick="fn_fctSetDefinition(42)">
+			6시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0101" onclick="fn_fctSetDefinition(45)">
+			9시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0101" onclick="fn_fctSetDefinition(48)">
+			12시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0101" onclick="fn_fctSetDefinition(51)">
+			15시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0101" onclick="fn_fctSetDefinition(54)">
+			18시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0101" onclick="fn_fctSetDefinition(57)">
+			21시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0101" onclick="fn_fctSetDefinition(60)">
+			24시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0102" onclick="fn_fctSetDefinition(63)">
+			3시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0102" onclick="fn_fctSetDefinition(66)">
+			6시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0102" onclick="fn_fctSetDefinition(69)">
+			9시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0102" onclick="fn_fctSetDefinition(72)">
+			12시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0102" onclick="fn_fctSetDefinition(75)">
+			15시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0102" onclick="fn_fctSetDefinition(78)">
+			18시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0102" onclick="fn_fctSetDefinition(81)">
+			21시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0102" onclick="fn_fctSetDefinition(84)">
+			24시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0103" onclick="fn_fctSetDefinition(87)">
+			3시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0103" onclick="fn_fctSetDefinition(90)">
+			6시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0103" onclick="fn_fctSetDefinition(93)">
+			9시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0103" onclick="fn_fctSetDefinition(96)">
+			12시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0103" onclick="fn_fctSetDefinition(99)">
+			15시
+		</button>
+		
+		
+		
+		
+		
+		<button type="button" class="forecastTimeBtn day0103" onclick="fn_fctSetDefinition(102)">
+			18시
+		</button>
+		
+	</div>
+</div>
+
+			
+
+<div id="map"></div>
+
+			
+
+
+
+
+
+
+
+
+
+<style>
+	.left-panel{left: 60px;width: 400px;position: absolute;height: calc(100% - 40px); background-color: #fff;padding: 0 20px;overflow: auto;top: 40px;}
+	.left-widget-title,.left-widget-layerbtnlist-title{color: #000;font-size: 20px;font-weight: 600; padding:20px 0;}
+	.left-widget-tab-container,.left-widget-baselayerlist{font-size: 17px;color: #000;background-color: #eff2f7;border-radius: 10px;padding: 20px;}
+	.left-widget-tab-container{height: 300px;}
+	.left-widget-tabs{display: flex;height: 40px;margin-bottom: 20px;}
+	.left-widget-tabs > div {width:50%;background-color: #fff;color:#000;text-align:center; align-content: center;cursor: pointer;}
+	.left-widget-tabs > div:first-child{border-top: 1px solid #dde0e6;border-left: 1px solid #dde0e6;border-bottom: 1px solid #dde0e6;border-top-left-radius: 8px;border-bottom-left-radius: 8px;}
+	.left-widget-tabs > div:last-child{border-top: 1px solid #dde0e6;border-right: 1px solid #dde0e6;border-bottom: 1px solid #dde0e6;border-top-right-radius: 8px;border-bottom-right-radius: 8px;}
+	.left-widget-tabs > div.on{background-color: #253471;color:#fff;}
+	.left-widget-tab-contents {background-color: #fff;padding:15px;border-radius: 2px;}
+	.left-widget-tab-contents > div.on{display: block;}
+	.left-widget-tab-contents > div{ display: none;}
+	.left-widget-tab-contents > div > div{display: flex;padding: 5px 0;}
+	.left-widget-tab-contents > div > div > div {width:60px;text-align: left;align-content: center;color: #000;font-weight: 600;}
+	.left-widget-search-select{width: calc(100% - 60px);height: 35px;border: 1px #9a9da2 solid;border-radius: 5px;text-align: left;text-indent: 15px;}
+	
+	.searchAdministBtn{width:100%; height: 40px; border-radius: 8px;background-color: #eef1fd; border: 1px solid #0e12ca;color:#0e12ca;font-size: 15px;font-weight: 300px;}
+	caption{display: none;}
+	.left-widget-layerbtnlist-title-div{color:#000;font-size:20px;font-weight: 600;margin: 30px 0 0 0;}
+	
+	.left-widget-baselayerlist{height: 100px;}
+	
+	.left-widget-layerbtnlist{font-size: 17px;color:#000;margin: 20px 0;display: flex;flex-wrap: wrap;justify-content: space-around;}
+	.left-widget-layerbtnlist > div{cursor:pointer;font-size: 17px;color:#535dee; width:48%;height:60px;background-color: #fff;border-radius: 10px;margin-bottom: 19px;text-align: center;position: relative;border:1px solid #535dee;}
+	.left-widget-layerbtnlist > div > div:first-child{height: 40px;}
+	.left-widget-layerbtnlist > div > div > p{color:#535dee;text-align: center;align-content: center;vertical-align: middle;height: 100%;}
+	.left-widget-layerbtnlist > div > div > p.layer-title{padding-top: 8px;}
+	.left-widget-layerbtnlist > div.select-layer-div{background-color: #535dee;}
+	.left-widget-layerbtnlist > div.select-layer-div > div > p{color:#fff;}
+	.left-widget-layerbtnlist > div.select-layer-div > div > p.select-layer-icon{position: absolute;width: 25px;height: 25px;background-color: #535dee;border-radius: 15px;border: #fff 2px solid;top: -6px;left: -6px;color: #fff;font-size: 15px;}
+	
+	.leftPanelBtn{width: 40px;height: 60px;background-color: #292b8d;position: absolute;border-top-right-radius: 10px;border-bottom-right-radius: 10px;color: #fff;text-align: center;padding-top: 20px;}
+	.leftPanelBtn.on {left: 460px;}
+	.leftPanelBtn.off {left: 60px;} 
+	
+	.left-widget-baselayer-first,.left-widget-baselayer-second{display: flex;padding: 5px 0;}
+	.left-widget-baselayer-first > div,.left-widget-baselayer-second > div{display: flex;align-items: center;gap: 5px;}
+	.left-widget-baselayer-first > div:first-child,.left-widget-baselayer-second > div:first-child{width:30%;}
+	.left-widget-baselayer-first > div:last-child,.left-widget-baselayer-second > div:last-child{width:70%;}
+	.left-widget-baselayer-first > div img,.left-widget-baselayer-second > div img{width:20px;}
+	
+	#administOpacity {display: flex;align-items: center;gap: 10px;width: 150px;}
+	#administOpacity > .ui-slider {flex:1;height:5px;}
+	#administOpacity > span {color:#000;}
+	.ui-corner-all{border-radius: 10px;}
+	
+	.left-menu-panel{left: 0;width: 60px;position: absolute;height: calc(100% - 40px);background-color: #364b77;overflow: none;top: 40px;text-align: center;}
+	.left-menu-panel > ul > li.on{background-color: #f4f5f6;}
+	.left-menu-panel > ul > li.on a{color:#364b77;}
+	.left-menu-panel > ul > li > a{width: 59px;padding: 8px 3px;font-size: 12px;letter-spacing: -1px;text-align: center;color: #fff;}
+	.left-menu-panel > ul > li:hover{background-color: #f4f5f6;}
+	.left-menu-panel > ul > li:hover a {color:#364b77;}
+	.left-menu-panel > ul > li > a > span{height: 30px;margin: 0 13px;display: block;}
+	.left-menu-panel > ul .menu1 > span{background: url(/images/old/layout/issue_link_icon_1.png) no-repeat;}
+	.left-menu-panel > ul .menu2 > span{background: url(/images/old/layout/issue_link_icon_2.png) no-repeat;}
+	.left-menu-panel > ul .menu3 > span{background: url(/images/old/layout/issue_link_icon_3.png) no-repeat;}
+	.left-menu-panel > ul .menu4 > span{background: url(/images/old/layout/issue_link_icon_4.png) no-repeat;}
+	.left-menu-panel > ul .menu5 > span{background: url(/images/old/layout/mo_member_3.png) no-repeat;}
+	
+	.select-layer-div .sub-slider-panel{display: block;}
+	.sub-slider-panel{height: 10px;background-color: #fff;position: absolute;width: calc(100% - 10px);bottom: 3px;margin: 0 5px;border-radius: 2px;align-content: center;display: none;}
+	.sub-slider-panel > div {margin: 0 10px;height: 5px;}
+	.sub-slider-panel >div > span {width: 10px !important;height: 10px !important;top: -4px !important;}
+</style>
+<div class="left-menu-panel">
+	<ul class="gnbmenu">
+		<li class=""><a href="/sys/gis/crntFfdIdx.do" class="menu1"><span></span>현재<br>산불<br></a></li>
+		<li class=""><a href="/sys/gis/selectGwFfdInfo.do" class="menu2"><span></span>강원<br>산불<br></a></li>
+		<li class=""><a href="/sys/gis/selectGbFfdInfo.do" class="menu3"><span></span>경북<br>산불<br></a></li>
+		<li class="on"><a href="/sys/gis/selectDtlFfdInfo.do" class="menu4"><span></span>상세<br>산불<br></a></li>
+		<li class=""><a href="/sys/gis/selectBffdForecast.do" class="menu5"><span></span>대형<br>산불<br></a></li>
+	</ul>
+</div>
+<div class="left-panel">
+	<div class="left-sub-panel">
+  			<div class="left-widget-title">검색기능</div>
+	    <div class="left-widget-tab-container">
+	    	<div class="left-widget-tabs">
+	    		<div id="search-admin-tab" class="on">지역검색</div>
+	    		<div id="search-cood-tab" >좌표검색</div>
+	    	</div>
+	    	<div class="left-widget-tab-contents">
+	    		<div id="search-admin-content" class="on">
+		    		<div>
+		    			<div>시도명</div>
+		    			<select class="left-widget-search-select" name="searchCtprvn" onchange="fn_searchSignguList(event)">
+				    		<option value="0">시도 선택</option>
+				    		
+				    		<option value="11">서울특별시</option>
+				    		
+				    		<option value="26">부산광역시</option>
+				    		
+				    		<option value="27">대구광역시</option>
+				    		
+				    		<option value="28">인천광역시</option>
+				    		
+				    		<option value="29">광주광역시</option>
+				    		
+				    		<option value="30">대전광역시</option>
+				    		
+				    		<option value="31">울산광역시</option>
+				    		
+				    		<option value="36">세종특별자치시</option>
+				    		
+				    		<option value="41">경기도</option>
+				    		
+				    		<option value="43">충청북도</option>
+				    		
+				    		<option value="44">충청남도</option>
+				    		
+				    		<option value="46">전라남도</option>
+				    		
+				    		<option value="47">경상북도</option>
+				    		
+				    		<option value="48">경상남도</option>
+				    		
+				    		<option value="50">제주특별자치도</option>
+				    		
+				    		<option value="51">강원특별자치도</option>
+				    		
+				    		<option value="52">전북특별자치도</option>
+				    		
+				    	</select> 
+		    		</div>
+		    		<div>
+		    			<div>시군구명</div>
+		    			<select class="left-widget-search-select" name="searchSigngu" onchange="fn_searchEmdList(event)">
+				    		<option value="0">시군구 선택</option>
+				    	</select> 
+		    		</div>
+		    		<div>
+		    			<div>읍면동명</div>
+		    			<select class="left-widget-search-select" name="searchEmd">
+				    		<option value="0">읍면동 선택</option>
+				    	</select> 
+		    		</div>
+		    		<button id="searchAdministBtn" class="searchAdministBtn" onclick="fn_searchAdminist()">검색</button>
+		    	</div>
+		    	<div id="search-cood-content">
+		    		좌표검색 컨텐츠
+		    	</div>
+	    	</div>
+	    </div>
+	    <div class="left-widget-layerbtnlist-title">레이어 목록 | <strong class="left-widget-select-layer-cnt">0개 선택됨</strong></div>
+	    <div class="left-widget-baselayerlist">
+	    	<div class="left-widget-baselayer-first">
+	    		<div><input type="checkbox" id="administChk" name="administChk" value="Y" checked><label for="administChk">행정구역도</label></div>
+	    		<div>
+	    			<img alt="배경지도 아이콘 이미지" src="/images/old/icon/slider-vertical-32.png">투명도
+	    			<div id="administOpacity"></div>
+	    		</div>
+	    	</div>
+	    	<div class="left-widget-baselayer-second">
+	    		<div><img alt="배경지도 아이콘 이미지" src="/images/old/common/btn_tool.png">배경지도</div>
+	    		<div>
+	    			<input type="radio" id="satellite" class="btn-map-selector" name="basemap" value="satellite"><label for="satellite">위성맵</label>
+	    			<input type="radio" id="base" class="btn-map-selector" name="basemap" value="base" checked><label for="base">일반맵</label>
+	    		</div>
+	    	</div>
+	    </div>
+	    <div class="left-widget-layerbtnlist"></div>
+	</div>
+</div>
+<a class="leftPanelBtn on" onclick="javascript:fn_leftPanelVisible(event); return false;">닫기</a>
+			
+
+
+
+
+
+
+
+
+
+<style>
+	.right-panel{right: 0;width: 500px;position: absolute;height: calc(100% - 40px);background-color: #fff;padding: 0 20px;overflow: auto;top: 40px;}
+	
+	.rightPanelBtn{width: 40px;height: 60px;background-color: #292b8d;position: absolute;border-top-left-radius: 10px;border-bottom-left-radius: 10px;color: #fff;text-align: center;padding-top: 20px;}
+	.rightPanelBtn.on {right: 500px;}
+	.rightPanelBtn.off {right: 0px;}
+	
+	.right-widget-title{color: #000;font-size: 20px;font-weight: 600;padding: 20px 0;}
+	.right-widget-tab-container,.right-widget-content-container {padding: 20px;}
+
+	.right-widget-tabs{display: flex;height: 40px;margin-bottom: 20px;}
+	.right-widget-tabs > div {width:50%;background-color: #fff;color:#000;text-align:center; align-content: center;cursor: pointer;}
+	.right-widget-tabs > div:first-child{border-top: 1px solid #dde0e6;border-left: 1px solid #dde0e6;border-bottom: 1px solid #dde0e6;border-top-left-radius: 8px;border-bottom-left-radius: 8px;}
+	.right-widget-tabs > div:last-child{border-top: 1px solid #dde0e6;border-right: 1px solid #dde0e6;border-bottom: 1px solid #dde0e6;border-top-right-radius: 8px;border-bottom-right-radius: 8px;}
+	.right-widget-tabs > div.on{background-color: #253471;color:#fff;}
+	.right-widget-tab-contents,.right-widget-contents{overflow: auto;}
+	.right-widget-tab-contents > div.on{display: block;}
+	.right-widget-tab-contents > div{display: none;}
+	.right-panel table{text-align: center;width: 100%;border-spacing: 0;}
+	.right-panel table thead tr{background-color: #eff2f7;color:#000;}
+	.right-panel table thead td{font-weight: 600;}
+	.right-panel table tr{height: 35px;}
+	.right-panel table td{font-size: 12px;}
+	.right-panel table tbody td{border-bottom:1px solid #e7e8ea;}
+	
+	.search-address-panel{border: 1px solid #cdd2d6;margin-top: 15px;border-radius: 5px;}
+	.search-address{text-align: center;border-bottom: 1px dotted #b4bbc1;margin: 0 15px;padding: 10px 0;}
+	.right-widget-address-container{height: 51px;text-align: center;padding: 5px 0;}
+	.right-widget-address-container > div {display: flex;height: 100%;}
+	.right-widget-address-container > div > div {width: 50%;align-content: center;font-weight: 600;border-radius: 5px;color:#00007a;}
+	.right-widget-address-container > div > div:first-child {margin:5px 5px 5px 15px;}
+	.right-widget-address-container > div > div:last-child {margin:5px 15px 5px 5px;border: 1px solid #cdd2d6;}
+	.danger-normal{background-color: rgb(1 119 245 / 0.4);color: #000;border: 1px solid #0177f5;}
+	.danger-high{background-color: rgb(255 219 15 / 40%);color: #000;border: 1px solid #ffdb0f;}
+	.danger-veryhigh{background-color: rgb(255 151 32 / 40%);color: #000;border: 1px solid #ff9720;}
+	.danger-extreme{background-color: rgb(255 13 13 / 40%);color: #000;border: 1px solid #ff0d0d;}
+	
+	.legend-container{position: absolute;right: 510px;bottom: 10px;}
+	.legend-container div.legend-content {background-color: #fff;width: 200px;height: 50px;border: 1px solid #c8c9ca;border-radius: 5px;display: none;}
+	.legend-container div.legend-content.on{display: block;}
+	.legend-container div.legend-popup-btn{width: 30px;height: 30px;background-color: #fff;border: 1px solid #223b6e;border-radius: 7px;color: #000;font-size: 11px;text-align: center;align-content: center;cursor: pointer;float: right;margin: 5px 0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+	.legend-container div.legend-popup-btn.on{background-color: #364b77;color: #fff;}
+</style>
+<input id="fctMaxCase" type="hidden" value="102">
+<div class="right-panel">
+	<div class="right-sub-panel">
+		<div class="search-address-panel">
+			<div class="right-widget-title search-address">위치정보없음</div>
+	    	<div class="right-widget-address-container"><div></div></div>
+		</div>
+		<div class="right-widget-title">대형산불위험정보</div>
+		<div class="right-widget-content-container">
+			<div class="right-widget-contents">
+	    		<table id="bigFfdInfoList" summary="">
+	    			<caption></caption>
+	    			<colgroup>
+	    				<col style="width:50%;">
+	    				<col style="width:50%;">
+	    			</colgroup>
+	    			<thead>
+	    				<tr>
+	    					<td scope="col">등급</td>
+	    					<td scope="col">건수</td>
+	    				</tr>
+	    			</thead>
+	    			<tbody>
+	    				<tr><td colspan="2">-</td></tr>
+	    			</tbody>
+	    		</table>
+	    	</div>
+		</div>
+		
+		<div class="right-widget-title">산불위험지수</div>
+		<div class="right-widget-content-container" style="height: 300px; overflow-y:auto; ">
+			<div class="right-widget-contents">
+	    		<table id="ffdIndexInfoList" summary="">
+	    			<caption></caption>
+	    			<colgroup>
+	    				<col style="width:40%;">
+	    				<col style="width:15%;">
+	    				<col style="width:15%;">
+	    				<col style="width:15%;">
+	    				<col style="width:15%;">
+	    			</colgroup>
+	    			<thead>
+	    				<tr>
+	    					<td scope="col">날짜</td>
+	    					<td scope="col">최소</td>
+	    					<td scope="col">최대</td>
+	    					<td scope="col">평균</td>
+	    					<td scope="col">표준편차</td>
+	    				</tr>
+	    			</thead>
+	    			<tbody>
+	    				<tr><td colspan="5">지수정보가 존재하지 않습니다.</td></tr>
+	    			</tbody>
+	    		</table>
+	    	</div>
+		</div>
+		
+		<div class="right-widget-title">중기예보</div>
+		<div class="right-widget-content-container">
+			<div class="right-widget-contents">
+	    		<table id="midTermForecastList" summary="">
+	    			<caption></caption>
+	    			<colgroup>
+	    				<col style="width:33.33%;">
+	    				<col style="width:33.33%;">
+	    				<col style="width:33.33%;">
+	    			</colgroup>
+	    			<thead>
+	    				<tr>
+	    					<td scope="col">예보날짜</td>
+	    					<td scope="col">위험등급</td>
+	    					<td scope="col">지수</td>
+	    				</tr>
+	    			</thead>
+	    			<tbody>
+	    				<tr><td colspan="3">예보정보가 존재하지 않습니다.</td></tr>
+	    			</tbody>
+	    		</table>
+	    	</div>
+		</div>
+	</div>
+</div>
+<a class="rightPanelBtn on" onclick="javascript:fn_rightPanelVisible(event); return false;">닫기</a>
+<div class="legend-container">
+	<div class="legend-content on">
+	</div>
+	<div class="legend-popup-btn on">범례</div>
+</div>
+<div class="map-tools">
+	<ul>
+		<li class="zoomin" title="확대"><span>확대</span></li>
+		<li class="zoomout" title="축소"><span>축소</span></li>
+	</ul>
+	<ul>
+		<li class="home" title="전체보기"><span>전체보기</span></li>
+	</ul>
+	<ul>
+		<li class="measure" title="거리재기"><span>거리</span></li>
+		<li class="area" title="면적재기"><span>면적</span></li>
+		<li class="save" title="지도저장"><span>저장</span></li>
+		<li class="clear" title="초기화"><span>초기화</span></li>
+	</ul>
+</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -47,20 +47,8 @@
 							<button>9월19일</button>
 						</div>
 				</div>
-				<div class="time-group topcontents-layout">
-					<button class="time-toggle">시간선택</button>
-					<div class="time-list">
-						<button class="active">3시</button>
-						<button>6시</button>
-						<button>9시</button>
-						<button>12시</button>
-						<button>15시</button>
-						<button>18시</button>
-						<button>21시</button>
-						<button>24시</button>
-					</div>
-				</div>
 			</div>
+			<!-- 모바일 예보검색 start-->
 			<div class="topcontents-center">
 				<div class="weather-group topcontents-layout">
 					<button>예보검색</button>
@@ -89,7 +77,7 @@
 					</div>
 				</div>
 			</div>
-			
+			<!-- 모바일 예보검색 end-->
 			<div class="topcontents-right">
 				<div class="todaytext">
 					현재실황: 2025년 09월 01일 16시 30분 발표
@@ -103,6 +91,19 @@
 			</div>
 		</div>
 		<!-- topcontents end -->
+		<div class="time-group out topcontents-layout">
+			<button class="time-toggle">시간선택</button>
+			<div class="time-list">
+				<button class="active">3시</button>
+				<button>6시</button>
+				<button>9시</button>
+				<button>12시</button>
+				<button>15시</button>
+				<button>18시</button>
+				<button>21시</button>
+				<button>24시</button>
+			</div>
+		</div>
 		<!-- container start -->
 		<div id="container">
 			<div>
@@ -235,12 +236,24 @@
 								</div>
 							</div>
 							<div>
-								<ul class="layer-button-list">
-									<li><button type="button" class="krds-btn tertiary medium">산불위험지수</button></li>
-									<li><button type="button" class="krds-btn tertiary medium">산불위험지도</button></li>
-									<li><button type="button" class="krds-btn tertiary medium">기온</button></li>
-									<li><button type="button" class="krds-btn tertiary medium">강수량</button></li>
-								</ul>
+								<div class="layer-button-list">
+									<div class="layer-control ">
+										<span>산불위험지수</span>
+										<input type="range" min="0" max="100" value="60">
+									</div>
+									<div class="layer-control">
+										<span>산불위험지도</span>
+										<input type="range" min="0" max="100" value="60">
+									</div>
+									<div class="layer-control"> 
+										<span>기온</span>
+										<input type="range" min="0" max="100" value="60">
+									</div>
+									<div class="layer-control"> 
+										<span>강수량</span>
+										<input type="range" min="0" max="100" value="60">
+									</div>
+								</div>
 							</div>
 					</section>
 				</div>

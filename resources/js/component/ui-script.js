@@ -2403,7 +2403,7 @@ const nuriToggleEvent = {
     });
   },
 };
-/*** * krds_orgLayer * ***/
+/*** * krds_orgLayer *  layer != null 추가***/
 const krds_orgLayer = {
   init() {
     // 버튼과 레이어 매핑
@@ -2444,7 +2444,7 @@ const krds_orgLayer = {
 
   handleOutsideClick(e) {
     Object.values(this.layers).forEach(({ layer, button }) => {
-      if (layer.style.display === 'block' && !layer.contains(e.target) && e.target !== button) {
+      if (layer !== null && layer.style.display === 'block' && !layer.contains(e.target) && e.target !== button) {
         this.closeLayer(layer);
       }
     });
